@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import styles from './Counter.css';
+import styles from './Mame.css';
 import routes from '../constants/routes.json';
 
 type Props = {
@@ -11,7 +11,7 @@ type Props = {
 
 export default function Mame(props: Props) {
   const { openGame, closeGame, isOpen } = props;
-  const text = isOpen === true ? 'Close' : 'Open';
+  const text = isOpen ? 'Close' : 'Open';
   return (
     <div>
       <div className={styles.backButton} data-tid="backButton">

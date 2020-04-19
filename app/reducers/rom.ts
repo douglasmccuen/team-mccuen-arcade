@@ -1,36 +1,41 @@
-import { Action } from 'redux';
-import util from 'util';
-import { exec } from 'child_process';
-import { OPEN_ROM, CLOSE_ROM } from '../actions/rom';
+import { Action } from 'redux'
+import util from 'util'
+import { exec } from 'child_process'
+import { OPEN_ROM, CLOSE_ROM } from '../actions/rom'
 
-const execPromise = util.promisify(exec);
+const execPromise = util.promisify(exec)
 
 const openMame = () => {
-  const cmd = '/Users/douglasmccuen/Documents/MakeExecutable/mame_start.sh';
-  return execPromise(cmd);
-};
+  const cmd = '/Users/douglasmccuen/Documents/MakeExecutable/mame_start.sh'
+  return execPromise(cmd)
+    .then(({ stdout }) => {
+      // TODO set state
+      // eslint-disable-next-line no-console
+      console.log(stdout)
+      return stdout
+    })
+    .catch(e => {
+      // TODO set state
+      // eslint-disable-next-line no-console
+      console.error(e)
+    })
+}
 
-export default function mame(
-  state = { isOpen: false },
-  action: Action<string>
-) {
+const mame = (state = { isOpen: false }, action: Action<string>) => {
+  let update
   switch (action.type) {
     case OPEN_ROM:
       openMame()
-        .then(({ stdout }) => {
-          // TODO set state
-          // eslint-disable-next-line no-console
-          console.log(stdout);
-          return stdout;
-        })
-        .catch(e => {
-          // TODO set state
-          // eslint-disable-next-line no-console
-          console.error(e);
-        });
-      return { isOpen: !state.isOpen };
+      update = { isOpen: !state.isOpen }
+      break
     case CLOSE_ROM:
+      update = { isOpen: !state.isOpen }
+      break
     default:
-      return { isOpen: !state.isOpen };
+      update = state
+      break
   }
+  return update
 }
+
+export default mame
