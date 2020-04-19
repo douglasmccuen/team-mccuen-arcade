@@ -1,4 +1,4 @@
-import { GetState, Dispatch } from '../reducers/types';
+// import { GetState, Dispatch } from '../reducers/types';
 
 export const OPEN_ROM = 'OPEN_ROM';
 export const CLOSE_ROM = 'CLOSE_ROM';

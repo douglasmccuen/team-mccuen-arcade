@@ -2,7 +2,7 @@ import { bindActionCreators, Dispatch } from 'redux';
 import { connect } from 'react-redux';
 import Mame from '../components/Mame';
 import { openGame, closeGame } from '../actions/rom';
-import { counterStateType } from '../reducers/types';
+import { romStateType } from '../reducers/types';
 
 function mapStateToProps(state: romStateType) {
   const { isOpen } = state.rom;
