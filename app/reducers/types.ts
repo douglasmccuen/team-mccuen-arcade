@@ -1,10 +1,19 @@
 import { Dispatch as ReduxDispatch, Store as ReduxStore, Action } from 'redux';
 
-export type counterStateType = {
-  counter: number;
+export type appStateType = {
+  counter: counterStateType;
+  rom: mameStateType;
 };
 
-export type GetState = () => counterStateType;
+export type counterStateType = {
+  count: number;
+};
+
+export type romStateType = {
+  isOpen: bool;
+};
+
+export type GetState = () => appStateType;
 
 export type Dispatch = ReduxDispatch<Action<string>>;
 
