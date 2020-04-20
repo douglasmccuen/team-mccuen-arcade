@@ -35,6 +35,7 @@ export default function Mame(props: Props) {
           <li>Test remote updates of the app</li>
           <li>Test remote management of the games (get the config working)</li>
           <li>Make sure the app works with a joystick</li>
+          <li>Make it look super cool</li>
         </ul>
       </div>
       <div className={styles.btnGroup}>

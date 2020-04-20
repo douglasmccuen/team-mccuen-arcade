@@ -1,12 +1,12 @@
-import { execFile } from 'child_process'
+import { exec } from 'child_process'
 import config from '../../../configs/app.config'
 
 // https://nodejs.org/api/child_process.html#child_process_child_process_execfile_file_args_options_callback
 
 const openMame = (game, callback) => {
-  const args = [game]
+  const cmd = `cd ${config.mamePath}; ./${config.mameExec} ${game}`
   const options = {}
-  return execFile(config.openMame, args, options, callback)
+  return exec(cmd, options, callback)
 }
 
 export default openMame

@@ -4,7 +4,8 @@ import merge from 'lodash/merge'
 const config = {
   all: {
     env: process.env.NODE_ENV || 'development',
-    openMame: '/Users/douglasmccuen/Documents/MakeExecutable/mame_start.sh'
+    mamePath: '/Users/douglasmccuen/mame',
+    mameExec: 'mame64'
   },
   test: { },
   development: { },
