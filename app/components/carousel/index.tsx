@@ -6,6 +6,7 @@ import useCarousel from './useCarousel'
 import games from '../../../configs/roms.config'
 import styles from './Carousel.css'
 import Game from './Game'
+import Preview from './Preview'
 
 const Carousel = () => {
 
@@ -17,14 +18,6 @@ const Carousel = () => {
 
   return (
     <div className={styles.Carousel}>
-      <ol className={styles.Indicators}>
-        {games.map((_, key) => (
-          <li
-            key={key}
-            className={`${active === key ? styles.Active : ""}`}
-          />
-        ))}
-      </ol>
       <div className={styles.Content} {...handlers} style={style}>
         <div className={styles.Item}>
           <Game {...games[games.length - 3]} />
@@ -56,6 +49,13 @@ const Carousel = () => {
           <Game {...games[4]} />
         </div>
       </div>
+      <ol className={styles.Indicators}>
+        {games.map((_, key) => (
+          <li key={key}>
+            <Preview {...games[key]} isActive={active === key} />
+          </li>
+        ))}
+      </ol>
     </div>
   )
 }

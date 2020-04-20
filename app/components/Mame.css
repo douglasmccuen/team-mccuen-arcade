@@ -1,18 +1,21 @@
+.Content {
+  position: relative;
+}
+
+.Carousel {
+  top: 150px;
+  position: relative;
+}
+
 .backButton {
   position: absolute;
-}
-
-.todo {
-  margin-left: 100px;
-}
-
-.todo li {
-  list-style-type: disc;
+  top: 0;
 }
 
 .btnGroup {
-  width: 480px;
-  margin: 20px auto;
+  position: absolute;
+  top: 0;
+  right: 0;
 }
 
 .btn {

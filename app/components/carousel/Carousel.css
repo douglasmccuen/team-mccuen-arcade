@@ -1,14 +1,31 @@
 .Carousel {
-  height: 100px;
+  margin-top: 50px;
+  padding-top: 300px;
+  position: relative;
 }
 .Indicators {
-  display: none;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  margin: 0;
+  margin-block-start: 0;
+  margin-block-end: 0;
+  padding-inline-start: 0;
+  margin-bottom: 10px;
+  margin-left: -10px;
+  margin-right: -10px;
+}
+.Indicators li {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
 }
 .Content {
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
   position: absolute;
+  top: 0;
 }
 .Item {
   display: flex;

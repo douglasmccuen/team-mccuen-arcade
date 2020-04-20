@@ -1,0 +1,11 @@
+.Preview {
+  margin-right: 1px;
+  background-color: lightgray;
+  border: 1px solid white;
+  display: inline-block;
+  height: 30px;
+}
+.Active {
+  border-color: yellow;
+  background-color: gray;
+}
