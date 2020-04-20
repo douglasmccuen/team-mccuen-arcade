@@ -15,6 +15,9 @@ export default function Mame(props: Props) {
   const onOpen = () => {
     openGame("dkong")
   }
+  const onClose = () => {
+    closeGame(true)
+  }
   return (
     <div>
       <div className={styles.backButton} data-tid="backButton">
@@ -38,7 +41,7 @@ export default function Mame(props: Props) {
         <button
           className={styles.btn}
           data-tclass="btn"
-          onClick={isOpen ? closeGame : onOpen}
+          onClick={isOpen ? onClose : onOpen}
           type="button"
         >
           {text}

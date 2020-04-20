@@ -17,13 +17,13 @@ const closeRom = () => {
   }
 }
 
-export function closeGame() {
+export function closeGame(kill: bool) {
   return (dispatch: Dispatch, getState: GetState) => {
     const { mameProcess } = getState().rom
-    if (mameProcess) {
+    if (mameProcess && kill) {
       // TODO if this app closes/exits it should close this mameProcess
       mameProcess.kill(2)
-      console.log('close the mame process')
+      console.log('closed the mame process')
     }
     dispatch(closeRom())
   }
@@ -40,7 +40,7 @@ export function openGame(game: string) {
     const callback = (error, stdout, stderr) => {
       if (error) {
         console.error(error)
-        dispatch(closeRom())
+        dispatch(closeRom(false))
       }
       // NOTE: the script being called doesn't return a buffer, so stdout and stderr will be strings
       // Perhaps calling mame directly will result in a buffer.
@@ -61,7 +61,7 @@ export function openGame(game: string) {
     if (process) {
 
       process.on('exit', (code) => {
-        dispatch(closeGame())
+        dispatch(closeGame(false))
         console.log(`Mame exited with code ${code}`);
       })
 
@@ -71,7 +71,7 @@ export function openGame(game: string) {
 
     } else {
       console.error("no child process created")
-      dispatch(closeRom())
+      dispatch(closeRom(false))
     }
   }
 }

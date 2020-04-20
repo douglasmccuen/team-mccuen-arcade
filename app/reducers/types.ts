@@ -11,6 +11,8 @@ export type counterStateType = {
 
 export type romStateType = {
   isOpen: bool;
+  game: string;
+  mameProcess: object;
 };
 
 export type GetState = () => appStateType;
