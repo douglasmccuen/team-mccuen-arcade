@@ -38,9 +38,7 @@ export default function Mame(props: Props) {
           <li>Add other emulators (NES, SNES)</li>
         </ul>
       </div>
-      <div className={styles.carousel}>
-        <Carousel />
-      </div>
+      <Carousel />
       <div className={styles.btnGroup}>
         <button
           className={styles.btn}

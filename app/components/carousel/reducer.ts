@@ -1,7 +1,7 @@
 import { CarouselAction, CarouselState } from './types'
 import { previous, next } from './helpers'
 
- const carouselReducer = (state: CarouselState, action: CarouselAction): CarouselState => {
+const carouselReducer = (state: CarouselState, action: CarouselAction): CarouselState => {
   switch (action.type) {
     case 'next':
       return {
@@ -16,7 +16,7 @@ import { previous, next } from './helpers'
     case 'done':
       return {
         ...state,
-        offset: undefined,
+        offset: NaN,
         active: state.desired,
       };
     default:

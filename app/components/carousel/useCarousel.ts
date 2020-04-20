@@ -1,3 +1,5 @@
+/* eslint no-restricted-globals: off */
+
 import { useReducer, useEffect } from 'react'
 import { transitionTime, elastic, smooth, initialState } from './constants'
 import carouselReducer from './reducer'
@@ -35,7 +37,7 @@ const useCarousel = (
     const shift = (100 * (pref || dir)) / (length + extraItems);
     style.transition = smooth;
     style.transform = `translateX(${shift}%)`;
-  } else if (!state.offset) {
+  } else if (!isNaN(state.offset)) {
     if (state.offset !== 0) {
       style.transform = `translateX(${state.offset}px)`;
     } else {

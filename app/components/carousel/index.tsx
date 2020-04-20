@@ -15,7 +15,7 @@ const Carousel = () => {
   // TODO add the joystick handlers here...
   const handlers = {}
 
-  return length > 0 && (
+  return (
     <div className={styles.Carousel}>
       <ol className={styles.Indicators}>
         {games.map((_, key) => (
@@ -57,7 +57,7 @@ const Carousel = () => {
         </div>
       </div>
     </div>
-    )
+  )
 }
 
 export default Carousel
