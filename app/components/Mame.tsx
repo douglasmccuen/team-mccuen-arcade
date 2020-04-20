@@ -12,6 +12,9 @@ type Props = {
 export default function Mame(props: Props) {
   const { openGame, closeGame, isOpen } = props;
   const text = isOpen ? 'Close Mame' : 'Open Mame';
+  const onOpen = () => {
+    openGame("dkong")
+  }
   return (
     <div>
       <div className={styles.backButton} data-tid="backButton">
@@ -35,7 +38,7 @@ export default function Mame(props: Props) {
         <button
           className={styles.btn}
           data-tclass="btn"
-          onClick={isOpen ? closeGame : openGame}
+          onClick={isOpen ? closeGame : onOpen}
           type="button"
         >
           {text}

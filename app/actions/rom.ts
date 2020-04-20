@@ -22,6 +22,7 @@ export function closeGame() {
     const { mameProcess } = getState().rom
     if (mameProcess) {
       // TODO if this app closes/exits it should close this mameProcess
+      mameProcess.kill(2)
       console.log('close the mame process')
     }
     dispatch(closeRom())
@@ -38,7 +39,6 @@ export function openGame(game: string) {
 
     const callback = (error, stdout, stderr) => {
       if (error) {
-        // TODO set state
         console.error(error)
         dispatch(closeRom())
       }
@@ -59,16 +59,18 @@ export function openGame(game: string) {
 
     const process = openMame(game, callback)
     if (process) {
+
       process.on('exit', (code) => {
         dispatch(closeGame())
         console.log(`Mame exited with code ${code}`);
       })
+
       setTimeout(() => {
         dispatch(openRom(process, game))
       }, 2000)
 
     } else {
-      console.error("no child")
+      console.error("no child process created")
       dispatch(closeRom())
     }
   }

@@ -10,10 +10,14 @@ const mame = (state = defaultState, action: Action<string>) => {
   let update
   switch (action.type) {
     case OPEN_ROM:
-      update = { isOpen: true, mameProcess: action.payload.mameProcess }
+      update = {
+        isOpen: true,
+        mameProcess: action.payload.mameProcess,
+        game: action.payload.game
+      }
       break
     case CLOSE_ROM:
-      update = { isOpen: false, mameProcess: null }
+      update = { isOpen: false, mameProcess: null, game: null }
       break
     default:
       update = state
