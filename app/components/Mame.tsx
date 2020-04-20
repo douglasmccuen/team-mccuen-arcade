@@ -1,7 +1,8 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import styles from './Mame.css';
-import routes from '../constants/routes.json';
+import React from 'react'
+import { Link } from 'react-router-dom'
+import styles from './Mame.css'
+import routes from '../constants/routes.json'
+import Carousel from './carousel'
 
 type Props = {
   openGame: () => void;
@@ -28,15 +29,17 @@ export default function Mame(props: Props) {
       <div className={styles.todo}>
         <h2>TODO List</h2>
         <ul>
-          <li>Embed Mame Window in this app, with reference to the new window so it can be closed remotely.</li>
           <li>A carousel of games, that can read the list of data from a json file.</li>
-          <li>Add other emulators (NES, SNES)</li>
-          <li>Test that I can install this app on the mini (and open games)</li>
-          <li>Test remote updates of the app</li>
-          <li>Test remote management of the games (get the config working)</li>
           <li>Make sure the app works with a joystick</li>
+          <li>Test that I can install this app on the mini (and open games)</li>
+          <li>Test remote management of the games (get the config working)</li>
+          <li>Test remote updates of the app</li>
           <li>Make it look super cool</li>
+          <li>Add other emulators (NES, SNES)</li>
         </ul>
+      </div>
+      <div className={styles.carousel}>
+        <Carousel />
       </div>
       <div className={styles.btnGroup}>
         <button

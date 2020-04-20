@@ -1,0 +1,9 @@
+.Game {
+  padding: 2rem;
+  border-radius: 1rem;
+  border: 2px solid white;
+}
+.Active {
+  border-color: yellow;
+  border-width: 4px;
+}

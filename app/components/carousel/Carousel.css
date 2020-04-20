@@ -1,0 +1,20 @@
+.Carousel {
+  height: 100px;
+}
+.Indicators {
+  display: none;
+}
+.Content {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  position: absolute;
+}
+.Item {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+.Active {
+  background-color: red;
+}
