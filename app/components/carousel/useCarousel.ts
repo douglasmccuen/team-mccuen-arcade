@@ -1,7 +1,6 @@
 /* eslint no-restricted-globals: off */
-
 import { useReducer, useEffect } from 'react'
-import { transitionTime, elastic, smooth, initialState } from './constants'
+import { transitionTime, elastic, smooth, initialState, keys } from './constants'
 import carouselReducer from './reducer'
 
 const useCarousel = (
@@ -45,7 +44,20 @@ const useCarousel = (
     }
   }
 
-  return [state.active, style];
+  const handlers = {
+    onKeyPress: ({key}) => {
+      // console.log(key)
+      if (key === keys.forward) {
+        dispatch({ type: 'next', length })
+      } else if (key === keys.back) {
+        dispatch({ type: 'prev', length })
+      }
+    },
+    onMouseDown: () => false,
+    tabIndex: 0
+  }
+
+  return [state.active, handlers, style];
 }
 
 export default useCarousel
