@@ -20,6 +20,10 @@ class Mame extends React.Component {
     this.focusCarouselInput = this.focusCarouselInput.bind(this)
   }
 
+  componentDidMount() {
+    this.focusCarouselInput()
+  }
+
   componentDidUpdate() {
     this.focusCarouselInput()
   }

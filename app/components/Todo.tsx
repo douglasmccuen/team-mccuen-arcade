@@ -17,7 +17,6 @@ export default function Home() {
 
       <div className={styles.todo}>
         <ul>
-          <li>Fix the flex layout so it scales right</li>
           <li>Make sure the app works with a joystick</li>
 
           <li>Test that I can install this app on the mini (and open games)</li>

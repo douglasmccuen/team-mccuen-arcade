@@ -1,14 +1,11 @@
 .Content {
   display: flex;
   flex-direction: column;
-  height: 100%;
 }
 
 .Carousel {
   display: flex;
   flex-direction: column;
-  height: 100%;
-  position: relative;
 }
 
 .Link {
