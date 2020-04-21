@@ -9,7 +9,7 @@ export const initialState: CarouselState = {
   active: 0,
 }
 export const keys = {
-  back: 's',
-  forward: 'd',
-  select: 'f'
+  back: ['d', 'ArrowLeft'],
+  forward: ['g', 'ArrowRight'],
+  select: ['5','6']
 }

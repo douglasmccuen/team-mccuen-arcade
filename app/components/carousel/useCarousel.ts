@@ -48,13 +48,13 @@ const useCarousel = (
   }
 
   const handlers = {
-    onKeyPress: ({key}) => {
-      // console.log(key)
-      if (key === keys.forward) {
+    onKeyDown: ({key}) => {
+      // console.log(`key: ${key}`)
+      if (keys.forward.includes(key)) {
         dispatch({ type: 'next', length, pause: 5 })
-      } else if (key === keys.back) {
+      } else if (keys.back.includes(key)) {
         dispatch({ type: 'prev', length, pause: 5 })
-      } else if (key === keys.select) {
+      } else if (keys.select.includes(key)) {
         onOpen(state.active)
       }
     },
