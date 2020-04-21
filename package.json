@@ -281,6 +281,7 @@
     "electron-log": "^4.0.6",
     "electron-updater": "^4.2.0",
     "history": "^4.10.1",
+    "home-config": "^0.1.0",
     "lodash": "^4.17.15",
     "pure-react-carousel": "^1.27.0",
     "react": "^16.12.0",

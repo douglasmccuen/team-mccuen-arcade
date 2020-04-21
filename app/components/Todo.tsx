@@ -42,6 +42,7 @@ export default function Home() {
           <li><b>Add cool features</b></li>
           <ul>
             <li>spin the carousel for a random game</li>
+            <li>volume control</li>
           </ul>
 
         </ul>
