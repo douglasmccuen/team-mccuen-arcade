@@ -14,13 +14,11 @@ export default function Mame(props: Props) {
   const { openGame, isOpen } = props;
   return (
     <div className={styles.Content}>
-      <div className={styles.backButton} data-tid="backButton">
-        <Link to={routes.HOME}>
-          <i className="fa fa-arrow-left fa-3x" />
-        </Link>
-      </div>
       <div className={styles.Carousel}>
         <Carousel openGame={openGame} paused={isOpen} />
+      </div>
+      <div className={styles.Link}>
+        <Link to={routes.TODO}>Todo List</Link>
       </div>
     </div>
   );
