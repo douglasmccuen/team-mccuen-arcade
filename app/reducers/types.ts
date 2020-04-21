@@ -1,22 +1,26 @@
-import { Dispatch as ReduxDispatch, Store as ReduxStore, Action } from 'redux';
-
-export type appStateType = {
-  counter: counterStateType;
-  rom: mameStateType;
-};
-
-export type counterStateType = {
-  count: number;
-};
+import { Dispatch as ReduxDispatch, Store as ReduxStore, Action } from 'redux'
 
 export type romStateType = {
-  isOpen: bool;
-  game: string;
-  mameProcess: object;
-};
+  isOpen: bool
+  game: string
+  mameProcess: object
+}
 
-export type GetState = () => appStateType;
+export type configStateType = {
+  isOpen: bool
+  game: string
+  mameProcess: object
+  config: object
+}
 
-export type Dispatch = ReduxDispatch<Action<string>>;
+export type appStateType = {
+  rom: romStateType
+  config: object
+}
 
-export type Store = ReduxStore<counterStateType, Action<string>>;
+
+export type GetState = () => appStateType
+
+export type Dispatch = ReduxDispatch<Action<string>>
+
+export type Store = ReduxStore<counterStateType, Action<string>>

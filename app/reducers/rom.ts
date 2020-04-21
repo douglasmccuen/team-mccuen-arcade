@@ -3,7 +3,8 @@ import { OPEN_ROM, CLOSE_ROM } from '../actions/rom'
 
 const defaultState = {
   isOpen: false,
-  mameProcess: null
+  mameProcess: null,
+  game: null
 }
 
 const mame = (state = defaultState, action: Action<string>) => {

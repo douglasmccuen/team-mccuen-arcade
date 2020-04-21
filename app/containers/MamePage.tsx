@@ -2,6 +2,7 @@ import { bindActionCreators, Dispatch } from 'redux';
 import { connect } from 'react-redux';
 import Mame from '../components/Mame';
 import { openGame, closeGame } from '../actions/rom';
+import refreshConfig from '../actions/config';
 import { romStateType } from '../reducers/types';
 
 function mapStateToProps(state: romStateType) {
@@ -10,7 +11,7 @@ function mapStateToProps(state: romStateType) {
 }
 
 function mapDispatchToProps(dispatch: Dispatch) {
-  return bindActionCreators({ openGame, closeGame }, dispatch);
+  return bindActionCreators({ openGame, closeGame, refreshConfig }, dispatch);
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Mame);

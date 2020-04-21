@@ -9,6 +9,7 @@ import Carousel from './carousel'
 type Props = {
   openGame: () => void
   closeGame: () => void
+  refreshConfig: () => void
   isOpen: bool
 };
 
@@ -21,7 +22,9 @@ class Mame extends React.Component {
   }
 
   componentDidMount() {
+    const { refreshConfig } = this.props
     this.focusCarouselInput()
+    refreshConfig()
   }
 
   componentDidUpdate() {
