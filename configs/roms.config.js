@@ -51,7 +51,7 @@ const roms = [
     game: 'dkong',
     name: 'Donkey Kong',
     emulator: 'mame',
-    image: '',
+    image: 'https://s3-us-west-2.amazonaws.com/gwd.services.development.dmccuen/arcade/dkong.jpg',
     rating: 5,
     description: ''
   },

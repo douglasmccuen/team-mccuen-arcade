@@ -11,10 +11,7 @@ import Preview from './Preview'
 const Carousel = () => {
 
   const { length } = games
-  const [active, style] = useCarousel(length, 5000)
-
-  // TODO add the joystick handlers here...
-  const handlers = {}
+  const [active, handlers, style] = useCarousel(length, 5000)
 
   return (
     <div className={styles.Carousel}>

@@ -8,3 +8,8 @@ export const initialState: CarouselState = {
   desired: 0,
   active: 0,
 }
+export const keys = {
+  back: 's',
+  forward: 'd',
+  select: 'f'
+}
