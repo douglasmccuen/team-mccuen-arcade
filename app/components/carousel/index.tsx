@@ -8,10 +8,19 @@ import styles from './Carousel.css'
 import Game from './Game'
 import Preview from './Preview'
 
-const Carousel = () => {
+type Props = {
+  openGame: () => void;
+  paused: bool;
+};
 
+const Carousel = (props: Props) => {
+  const { openGame, paused } = props
   const { length } = games
-  const [active, handlers, style] = useCarousel(length, 5000)
+  const onOpen = (idx) => {
+    const rom = games[idx]
+    openGame(rom.game)
+  }
+  const [active, handlers, style] = useCarousel(length, 5000, onOpen, paused)
 
   return (
     <div className={styles.Carousel}>

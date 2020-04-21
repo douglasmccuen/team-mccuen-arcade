@@ -11,14 +11,7 @@ type Props = {
 };
 
 export default function Mame(props: Props) {
-  const { openGame, closeGame, isOpen } = props;
-  const text = isOpen ? 'Close Mame' : 'Open Mame';
-  const onOpen = () => {
-    openGame("dkong")
-  }
-  const onClose = () => {
-    closeGame(true)
-  }
+  const { openGame, isOpen } = props;
   return (
     <div className={styles.Content}>
       <div className={styles.backButton} data-tid="backButton">
@@ -26,18 +19,8 @@ export default function Mame(props: Props) {
           <i className="fa fa-arrow-left fa-3x" />
         </Link>
       </div>
-      <div className={styles.btnGroup}>
-        <button
-          className={styles.btn}
-          data-tclass="btn"
-          onClick={isOpen ? onClose : onOpen}
-          type="button"
-        >
-          {text}
-        </button>
-      </div>
       <div className={styles.Carousel}>
-        <Carousel />
+        <Carousel openGame={openGame} paused={isOpen} />
       </div>
     </div>
   );

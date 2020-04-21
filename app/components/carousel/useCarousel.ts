@@ -6,14 +6,17 @@ import carouselReducer from './reducer'
 const useCarousel = (
   length: number,
   interval: number,
+  onOpen: (n: number) => void,
+  paused: bool,
 ): [number, (n: number) => void, React.CSSProperties] => {
 
   const [state, dispatch] = useReducer(carouselReducer, initialState);
 
   useEffect(() => {
-    const id = setTimeout(() => dispatch({ type: 'next', length }), interval);
+    if (paused) return () => {}
+    const id = setTimeout(() => dispatch({ type: 'next', length }), state.pause * interval);
     return () => clearTimeout(id);
-  }, [state.offset, state.active]);
+  }, [state.offset, state.active, state.pause]);
 
   useEffect(() => {
     const id = setTimeout(() => dispatch({ type: 'done' }), transitionTime);
@@ -48,9 +51,11 @@ const useCarousel = (
     onKeyPress: ({key}) => {
       // console.log(key)
       if (key === keys.forward) {
-        dispatch({ type: 'next', length })
+        dispatch({ type: 'next', length, pause: 5 })
       } else if (key === keys.back) {
-        dispatch({ type: 'prev', length })
+        dispatch({ type: 'prev', length, pause: 5 })
+      } else if (key === keys.select) {
+        onOpen(state.active)
       }
     },
     onMouseDown: () => false,

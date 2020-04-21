@@ -7,11 +7,13 @@ const carouselReducer = (state: CarouselState, action: CarouselAction): Carousel
       return {
         ...state,
         desired: next(action.length, state.active),
+        pause: action.pause||1,
       };
     case 'prev':
       return {
         ...state,
         desired: previous(action.length, state.active),
+        pause: action.pause||1,
       };
     case 'done':
       return {
