@@ -53,7 +53,7 @@ const roms = [
     emulator: 'mame',
     image: 'https://s3-us-west-2.amazonaws.com/gwd.services.development.dmccuen/arcade/dkong.jpg',
     rating: 5,
-    description: ''
+    description: 'Dad\'s favorite game of all time...'
   },
   {
     game: 'frogger',

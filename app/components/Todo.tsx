@@ -17,12 +17,33 @@ export default function Home() {
 
       <div className={styles.todo}>
         <ul>
-          <li>Test that I can install this app on the mini (and open games)</li>
-          <li>Test remote management of the games (get the config working)</li>
-          <li>Test remote updates of the app</li>
 
-          <li>Make it look super cool</li>
-          <li>Add other emulators (NES, SNES)</li>
+          <li><b>Install and Config</b></li>
+          <ul>
+            <li>install this app on the mini</li>
+            <li>the config should be an external file</li>
+            <li>remote updates?</li>
+          </ul>
+
+          <li><b>Make it look super cool</b></li>
+          <ul>
+            <li>make carousel look big in middle</li>
+            <li>add cool title bar</li>
+            <li>add cool bg images</li>
+            <li>add cool icon</li>
+          </ul>
+
+          <li><b>Add other emulators</b></li>
+          <ul>
+            <li>NES</li>
+            <li>SNES</li>
+          </ul>
+
+          <li><b>Add cool features</b></li>
+          <ul>
+            <li>spin the carousel for a random game</li>
+          </ul>
+
         </ul>
       </div>
     </div>

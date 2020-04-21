@@ -21,6 +21,12 @@
 
 .todo li {
   list-style-type: disc;
+  margin-bottom: 5px;
+}
+
+.todo ul ul {
+  margin-top: 5px;
+  margin-bottom: 20px;
 }
 
 .backButton {

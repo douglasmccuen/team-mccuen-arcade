@@ -1,11 +1,19 @@
 .Preview {
   margin-right: 1px;
-  background-color: lightgray;
   border: 1px solid white;
   display: inline-block;
   height: 10vh;
+  overflow: hidden;
+  position: relative;
+  border-width: 3px;
 }
 .Active {
   border-color: yellow;
   background-color: gray;
+}
+.Preview img {
+  width: 300%;
+  position: absolute;
+  top: -10px;
+  left: -100%;
 }

@@ -12,13 +12,14 @@ type Props = {
 };
 
 export default function Game(props: Props) {
-  const { name, isActive, image } = props;
+  const { name, isActive, image, description } = props;
   const css = [styles.Game]
   if (isActive) css.push(styles.Active)
   return (
     <div className={css.join(' ')}>
-      { name }
-      <img src={image} alt={name} />
+      <div className={styles.Image}><img src={image} alt={name} /></div>
+      <div className={styles.Name}>{ name }</div>
+      <div className={styles.Desc}>{ description }</div>
     </div>
   )
 }
