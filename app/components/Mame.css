@@ -1,9 +1,13 @@
 .Content {
-  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
 .Carousel {
-  top: 150px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
   position: relative;
 }
 

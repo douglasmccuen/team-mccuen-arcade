@@ -9,11 +9,12 @@ import Game from './Game'
 import Preview from './Preview'
 
 type Props = {
-  openGame: () => void;
-  paused: bool;
-};
+  openGame: () => void
+  paused: bool
+  ref: object
+}
 
-const Carousel = (props: Props) => {
+const Carousel = React.forwardRef((props: Props, ref) => {
   const { openGame, paused } = props
   const { length } = games
   const onOpen = (idx) => {
@@ -23,8 +24,8 @@ const Carousel = (props: Props) => {
   const [active, handlers, style] = useCarousel(length, 5000, onOpen, paused)
 
   return (
-    <div className={styles.Carousel}>
-      <div className={styles.Content} {...handlers} style={style}>
+    <div className={styles.Carousel} {...handlers} ref={ref}>
+      <div className={styles.Content} style={style}>
         <div className={styles.Item}>
           <Game {...games[games.length - 3]} />
         </div>
@@ -64,6 +65,8 @@ const Carousel = (props: Props) => {
       </ol>
     </div>
   )
-}
+})
+
+Carousel.displayName = "Carousel"
 
 export default Carousel
