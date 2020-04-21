@@ -17,8 +17,6 @@ body {
   font-family: Arial, Helvetica, Helvetica Neue, serif;
   overflow-y: hidden;
   overflow-x: hidden;
-  display: flex;
-  flex-direction: column;
 }
 
 h2 {

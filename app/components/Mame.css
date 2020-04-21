@@ -1,11 +1,9 @@
 .Content {
-  display: flex;
-  flex-direction: column;
+  position: relative;
 }
 
 .Carousel {
-  display: flex;
-  flex-direction: column;
+  position: relative;
 }
 
 .Link {

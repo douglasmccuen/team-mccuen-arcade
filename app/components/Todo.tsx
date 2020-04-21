@@ -17,8 +17,6 @@ export default function Home() {
 
       <div className={styles.todo}>
         <ul>
-          <li>Make sure the app works with a joystick</li>
-
           <li>Test that I can install this app on the mini (and open games)</li>
           <li>Test remote management of the games (get the config working)</li>
           <li>Test remote updates of the app</li>
