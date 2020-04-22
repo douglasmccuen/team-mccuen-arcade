@@ -73,8 +73,8 @@ const roms = {
       description: ''
     },
     {
-      game: 'ateris',
-      name: 'Ateris',
+      game: 'atetris',
+      name: 'Tetris',
       emulator: 'mame',
       image: '',
       rating: 1,
