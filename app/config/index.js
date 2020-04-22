@@ -14,8 +14,30 @@ const loadUserConfig = () => {
   defaultAppConfig.mamePath = `${homeConfig.homeDir}/${defaultAppConfig.mamePath}`
 
   const config = homeConfig.load(configFile, defaultAppConfig)
-  const rom = homeConfig.load(romFile, defaultRomConfig)
-  return Promise.resolve([config, rom])
+  const romsConfg = homeConfig.load(romFile, defaultRomConfig)
+
+  // fix the roms config as needed
+  const { roms=[] } = romsConfg.getAll()
+  try {
+    romsConfg.roms = roms.map(JSON.parse)
+  } catch(e) {
+    // error catch when file doesn't exist, and it is first created
+    // console.error(e)
+  }
+
+  // force new games into the config
+  const newGames = defaultRomConfig.roms.filter(x => {
+    let isNew = true
+    romsConfg.roms.forEach(({ game }) => {
+      if (x.game === game) {
+        isNew = false
+      }
+    })
+    return isNew
+  })
+  if (newGames.length > 0) romsConfg.roms = roms.concat(newGames)
+
+  return Promise.resolve([config, romsConfg])
 }
 
 const writeUserConfig = (cfgs) => {
@@ -30,11 +52,7 @@ const writeUserConfig = (cfgs) => {
 
 const mergeConfig = (cfgs) => {
   if (Array.isArray(cfgs) && cfgs.length===2) {
-    // fix the roms config
-    const {roms=[]} = cfgs[1].getAll()
-    const romsConfg = {roms: roms.map(JSON.parse)}
-
-    const config = merge(cfgs[0].getAll(), romsConfg)
+    const config = merge(cfgs[0].getAll(), cfgs[1].getAll())
     return Promise.resolve(config)
   }
   return Promise.reject(new Error('Bad configs'))

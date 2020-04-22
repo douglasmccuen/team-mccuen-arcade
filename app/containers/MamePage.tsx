@@ -8,7 +8,14 @@ import { romStateType } from '../reducers/types';
 function mapStateToProps(state: romStateType) {
   const { isOpen } = state.rom
   const { roms=[] } = state.config
-  return { isOpen, games: roms };
+
+  // sort the games by name
+  const games = [].concat(roms)
+  games.sort((a, b) => {
+    return a.name.localeCompare(b.name)
+  })
+
+  return { isOpen, games };
 }
 
 function mapDispatchToProps(dispatch: Dispatch) {
