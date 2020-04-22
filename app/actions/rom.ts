@@ -33,6 +33,7 @@ export function openGame(game: string) {
   return (dispatch: Dispatch, getState: GetState) => {
 
     const { mameProcess, isOpen } = getState().rom
+    const { mamePath, mameExec } = getState().config
 
     // abort if it is already open
     if (isOpen || mameProcess) return
@@ -57,7 +58,7 @@ export function openGame(game: string) {
       console.log(stderr)
     }
 
-    const process = openMame(game, callback)
+    const process = openMame({game, mamePath, mameExec}, callback)
     if (process) {
 
       process.on('exit', (code) => {

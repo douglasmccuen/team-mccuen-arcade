@@ -6,8 +6,9 @@ import refreshConfig from '../actions/config';
 import { romStateType } from '../reducers/types';
 
 function mapStateToProps(state: romStateType) {
-  const { isOpen } = state.rom;
-  return { isOpen };
+  const { isOpen } = state.rom
+  const { roms=[] } = state.config
+  return { isOpen, games: roms };
 }
 
 function mapDispatchToProps(dispatch: Dispatch) {

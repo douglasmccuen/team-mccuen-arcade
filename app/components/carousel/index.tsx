@@ -3,19 +3,19 @@
 
 import React from 'react'
 import useCarousel from './useCarousel'
-import games from '../../../configs/roms.config'
 import styles from './Carousel.css'
 import Game from './Game'
 import Preview from './Preview'
 
 type Props = {
+  games: array
   openGame: () => void
   paused: bool
   ref: object
 }
 
 const Carousel = React.forwardRef((props: Props, ref) => {
-  const { openGame, paused } = props
+  const { openGame, paused, games } = props
   const { length } = games
   const onOpen = (idx) => {
     const rom = games[idx]
@@ -23,7 +23,7 @@ const Carousel = React.forwardRef((props: Props, ref) => {
   }
   const [active, handlers, style] = useCarousel(length, 5000, onOpen, paused)
 
-  return (
+  return length>0 && (
     <div className={styles.Carousel} {...handlers} ref={ref}>
       <div className={styles.Content} style={style}>
         <div className={styles.Item}>
