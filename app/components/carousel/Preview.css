@@ -1,11 +1,14 @@
 .Preview {
   margin-right: 1px;
-  border: 1px solid white;
+  border: 1px solid rgba(0, 0, 0, 0);
+  border-left: 0;
+  border-right: 0;
   display: inline-block;
   height: 10vh;
-  overflow: hidden;
-  position: relative;
   border-width: 3px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 .Active {
   border-color: yellow;

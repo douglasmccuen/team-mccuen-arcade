@@ -23,7 +23,10 @@ const useCarousel = (
     return () => clearTimeout(id);
   }, [state.desired]);
 
+  // percentage of screen width for the game in the carousel
   const itemScale = 20
+
+  // number of offscreen games in the carousel to fill gaps during rotation
   const extraItems = 8
 
   const style: React.CSSProperties = {
@@ -62,7 +65,9 @@ const useCarousel = (
     tabIndex: 0
   }
 
-  return [state.active, handlers, style];
+  const isMoving = (state.desired !== state.active)
+
+  return [state.active, handlers, style, isMoving];
 }
 
 export default useCarousel

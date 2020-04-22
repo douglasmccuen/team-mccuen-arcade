@@ -186,7 +186,7 @@ const roms = {
     },
     {
       game: 'indytemp',
-      name: 'Indian Jones',
+      name: 'Indiana Jones',
       emulator: 'mame',
       image: '',
       rating: 5,

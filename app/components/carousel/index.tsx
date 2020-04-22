@@ -1,5 +1,6 @@
 /* eslint react/jsx-props-no-spreading: off */
 /* eslint react/no-array-index-key: off */
+/* eslint react/jsx-closing-bracket-location: off */
 
 import React from 'react'
 import useCarousel from './useCarousel'
@@ -21,7 +22,8 @@ const Carousel = React.forwardRef((props: Props, ref) => {
     const rom = games[idx]
     openGame(rom.game)
   }
-  const [active, handlers, style] = useCarousel(length, 5000, onOpen, paused)
+  const [active, handlers, style, isMoving] =
+    useCarousel(length, 5000, onOpen, paused)
 
   return length>0 && (
     <div className={styles.Carousel} {...handlers} ref={ref}>
@@ -37,7 +39,14 @@ const Carousel = React.forwardRef((props: Props, ref) => {
         </div>
         {games.map((game, key) => (
           <div className={styles.Item} key={key}>
-            <Game {...game} isActive={active === key} />
+            <Game
+              {...game}
+              isMoving={isMoving}
+              isPrePreActive={(active - key) === -2}
+              isPreActive={(active - key) === -1}
+              isActive={active === key}
+              isPostActive={(active - key) === 1}
+              isPostPostActive={(active - key) === 2} />
           </div>
         ))}
         <div className={styles.Item}>

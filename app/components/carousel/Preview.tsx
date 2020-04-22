@@ -12,12 +12,13 @@ type Props = {
 }
 
 export default function Preview(props: Props) {
-  const { isActive, name, image } = props
+  const { isActive, image } = props
+  const style = {
+    backgroundImage: `url(${image})`
+  }
   const css = [styles.Preview]
   if (isActive) css.push(styles.Active)
   return (
-    <div className={css.join(' ')}>
-      <img src={image} alt={name} />
-    </div>
+    <div className={css.join(' ')} style={style} />
   )
 }

@@ -6,6 +6,8 @@
   display: flex;
   flex-direction: column;
   font-size: 1.5vw;
+  transform: scale(0.8);
+  transition: transform 400ms ease;
 }
 .Game img {
   width: 300%;
@@ -13,10 +15,27 @@
   top: -10px;
   left: -100%;
 }
+
 .Active {
   border-color: yellow;
   border-width: 4px;
 }
+.Active,
+.PreActive.isMoving {
+  transform: scale(1);
+}
+.PreActive,
+.PostActive,
+.PrePreActive.isMoving,
+.Active.isMoving {
+  transform: scale(0.9);
+}
+.PrePreActive,
+.PostPostActive,
+.PostActive.isMoving {
+  transform: scale(0.8);
+}
+
 .Image {
   position: relative;
   overflow: hidden;
