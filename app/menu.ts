@@ -112,6 +112,13 @@ export default class MenuBuilder {
           }
         },
         {
+          label: 'Todo List',
+          accelerator: 'Command+T',
+          click: () => {
+            this.mainWindow.webContents.loadURL(`file://${__dirname}/app.html#/todo`)
+          }
+        },
+        {
           label: 'Toggle Full Screen',
           accelerator: 'Ctrl+Command+F',
           click: () => {

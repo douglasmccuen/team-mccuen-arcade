@@ -2,9 +2,6 @@
 /* eslint react/jsx-closing-bracket-location: off */
 
 import React from 'react'
-import { Link } from 'react-router-dom'
-import styles from './Mame.css'
-import routes from '../constants/routes.json'
 import Carousel from './carousel'
 
 type Props = {
@@ -40,18 +37,11 @@ class Mame extends React.Component {
   render() {
     const { openGame, isOpen, games } = this.props
     return (games.length>0) ? (
-      <div className={styles.Content}>
-        <div className={styles.Carousel}>
-          <Carousel
-            openGame={openGame}
-            paused={isOpen}
-            games={games}
-            ref={this.carousel} />
-        </div>
-        <div className={styles.Link}>
-          <Link to={routes.TODO}>Todo List</Link>
-        </div>
-      </div>
+      <Carousel
+        openGame={openGame}
+        paused={isOpen}
+        games={games}
+        ref={this.carousel} />
     ) : <div ref={this.carousel}>loading...</div>
   }
 }
