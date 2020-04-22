@@ -20,9 +20,7 @@ export default function Home() {
 
           <li><b>Install and Config</b></li>
           <ul>
-            <li>install this app on the mini</li>
-            <li>the config should be an external file</li>
-            <li>remote updates?</li>
+            <li>add the other games</li>
           </ul>
 
           <li><b>Make it look super cool</b></li>
@@ -39,10 +37,27 @@ export default function Home() {
             <li>SNES</li>
           </ul>
 
+          <li><b>Add other roms</b></li>
+          <ul>
+            <li>Super Mario Bros</li>
+            <li>PunchOut</li>
+            <li>Prince of Pursia</li>
+            <li>Gauntlet</li>
+            <li>Starwars Arcade</li>
+            <li>Tapper</li>
+            <li>Tony Hawk</li>
+            <li>Golden Tee</li>
+            <li>Doom</li>
+          </ul>
+
           <li><b>Add cool features</b></li>
           <ul>
             <li>spin the carousel for a random game</li>
             <li>volume control</li>
+            <li>add sound effects</li>
+            <li>drag and drop game loader</li>
+            <li>auto-fetch game details</li>
+            <li>better conrol of the mame process window</li>
           </ul>
 
         </ul>
