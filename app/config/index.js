@@ -9,6 +9,10 @@ const configFile = 'Public/games/.teamMcCuen'
 const romFile = 'Public/games/.roms'
 
 const loadUserConfig = () => {
+
+  // update the defaultAppConfig to include the user's home dir in the mamePath
+  defaultAppConfig.mamePath = `${homeConfig.homeDir}/${defaultAppConfig.mamePath}`
+
   const config = homeConfig.load(configFile, defaultAppConfig)
   const rom = homeConfig.load(romFile, defaultRomConfig)
   return Promise.resolve([config, rom])

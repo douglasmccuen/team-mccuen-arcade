@@ -1,6 +1,6 @@
 const cfg = {
   romConfigPath: 'Public/games',
-  mamePath: '/Users/douglasmccuen/mame',
+  mamePath: 'mame',
   mameExec: 'mame64',
 }
 
