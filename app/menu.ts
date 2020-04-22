@@ -112,10 +112,12 @@ export default class MenuBuilder {
           }
         },
         {
-          label: 'Todo List',
+          label: 'Issues List',
           accelerator: 'Command+T',
           click: () => {
-            this.mainWindow.webContents.loadURL(`file://${__dirname}/app.html#/todo`)
+            shell.openExternal(
+              'https://bitbucket.org/dmccuen/electron-arcade/issues'
+            )
           }
         },
         {
@@ -142,6 +144,15 @@ export default class MenuBuilder {
           accelerator: 'Ctrl+Command+F',
           click: () => {
             this.mainWindow.setFullScreen(!this.mainWindow.isFullScreen());
+          }
+        },
+        {
+          label: 'Issues List',
+          accelerator: 'Command+T',
+          click: () => {
+            shell.openExternal(
+              'https://bitbucket.org/dmccuen/electron-arcade/issues'
+            )
           }
         }
       ]
