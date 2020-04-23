@@ -1,5 +1,5 @@
-import { BrowserWindow, ipcMain } from 'electron'
-import openMameWindow from './openMame'
+import { BrowserWindow, ipcMain, IpcMainInvokeEvent } from 'electron'
+import openMameWindow from './openMameWindow'
 import { OPEN_WINDOW } from './constants'
 
 export default class WindowManager {
@@ -11,7 +11,7 @@ export default class WindowManager {
 
   activate() {
     this.mainWindow.setFullScreen(true)
-    ipcMain.handle(OPEN_WINDOW, async (event, props) => {
+    ipcMain.handle(OPEN_WINDOW, async (evt: IpcMainInvokeEvent, props: object) => {
       const result = await openMameWindow(this.mainWindow)(props)
       this.mainWindow.setFullScreen(false)
       return result

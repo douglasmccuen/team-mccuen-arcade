@@ -5,25 +5,42 @@ import React from 'react'
 import Carousel from './carousel'
 
 type Props = {
-  games: array
+  games: []
   openGame: () => void
   closeGame: () => void
   refreshConfig: () => void
-  isOpen: bool
+  isWindowMuted: () => void
+  muteWindow: () => void
+  isOSMuted: () => void
+  muteOS: () => void
+  setOSVolumeLevel: () => void
+  getOSVolumeLevel: () => void
+  isOpen: boolean
 };
 
-class Mame extends React.Component {
+interface MameType {
+  carousel: React.Ref
+  props: Props
+}
+
+class Mame extends React.Component implements MameType {
+
+  carousel = React.createRef()
 
   constructor(props: Props) {
     super(props)
-    this.carousel = React.createRef()
     this.focusCarouselInput = this.focusCarouselInput.bind(this)
   }
 
   componentDidMount() {
-    const { refreshConfig } = this.props
+    const {
+      refreshConfig, isWindowMuted, isOSMuted, getOSVolumeLevel
+    } = this.props
     this.focusCarouselInput()
     refreshConfig()
+    isWindowMuted()
+    isOSMuted()
+    getOSVolumeLevel()
   }
 
   componentDidUpdate() {

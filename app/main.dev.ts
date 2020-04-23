@@ -13,7 +13,7 @@ import { app, BrowserWindow } from 'electron'
 import { autoUpdater } from 'electron-updater'
 import log from 'electron-log'
 import MenuBuilder from './menu'
-import { WindowManager } from './window'
+import { WindowManager, AudioManager } from './window'
 
 export default class AppUpdater {
   constructor() {
@@ -96,6 +96,9 @@ const createWindow = async () => {
   // handle the creation of windows for emulators
   const windowManager = new WindowManager(mainWindow)
   windowManager.activate()
+
+  const audioManager = new AudioManager(mainWindow)
+  audioManager.activate()
 
   // Remove this if your app does not use auto updates
   // eslint-disable-next-line

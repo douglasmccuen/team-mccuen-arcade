@@ -3,6 +3,10 @@ import { connect } from 'react-redux';
 import Mame from '../components/Mame';
 import { openGame, closeGame } from '../actions/rom';
 import refreshConfig from '../actions/config';
+import {
+  isWindowMuted, muteWindow, isOSMuted, muteOS, setOSVolumeLevel,
+  getOSVolumeLevel
+} from '../actions/window'
 import { romStateType } from '../reducers/types';
 
 function mapStateToProps(state: romStateType) {
@@ -19,7 +23,10 @@ function mapStateToProps(state: romStateType) {
 }
 
 function mapDispatchToProps(dispatch: Dispatch) {
-  return bindActionCreators({ openGame, closeGame, refreshConfig }, dispatch);
+  return bindActionCreators({
+    openGame, closeGame, refreshConfig, isWindowMuted, muteWindow, isOSMuted,
+    muteOS, setOSVolumeLevel, getOSVolumeLevel
+  }, dispatch);
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Mame);
