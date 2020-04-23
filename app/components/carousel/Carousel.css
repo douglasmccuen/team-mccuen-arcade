@@ -1,6 +1,10 @@
 .Carousel {
   padding: 3vh 0;
 }
+.Carousel:focus {
+  border: 0;
+  outline: none;
+}
 .Indicators {
   display: flex;
   flex-direction: row;

@@ -18,6 +18,7 @@ type Props = {
   muteOS: () => void
   setOSVolumeLevel: () => void
   getOSVolumeLevel: () => void
+  onSleep: () => void
   isOpen: boolean
 };
 
@@ -54,11 +55,13 @@ class Mame extends React.Component<Props> implements MameType {
   }
 
   render() {
-    const { openGame, isOpen, games, isOSMuted, muteOS, setOSVolumeLevel } = this.props
+    const {
+      openGame, isOpen, games, isOSMuted, muteOS, setOSVolumeLevel, onSleep
+    } = this.props
     return (games.length>0) ? (
       <>
         <Banner
-          onSleep={()=>{}}
+          onSleep={onSleep}
           onMute={() => {muteOS(!isOSMuted)}}
           onVolUp={()=>{setOSVolumeLevel(80)}}
           onVolDown={()=>{setOSVolumeLevel(20)}}

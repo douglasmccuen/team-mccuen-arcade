@@ -5,7 +5,7 @@ import { openGame, closeGame } from '../actions/rom';
 import refreshConfig from '../actions/config';
 import {
   isWindowMuted as getIsWindowMuted, muteWindow, isOSMuted as getIsOSMuted, muteOS, setOSVolumeLevel,
-  getOSVolumeLevel
+  getOSVolumeLevel, gotToSleepNow as onSleep
 } from '../actions/window'
 import { appStateType } from '../reducers/types';
 
@@ -27,7 +27,7 @@ function mapDispatchToProps(dispatch: Dispatch) {
   return bindActionCreators({
     openGame, closeGame, refreshConfig, muteWindow,
     getIsWindowMuted, getIsOSMuted,
-    muteOS, setOSVolumeLevel, getOSVolumeLevel, onSleep: () => {}
+    muteOS, setOSVolumeLevel, getOSVolumeLevel, onSleep
   }, dispatch);
 }
 
