@@ -3,6 +3,7 @@
 
 import React from 'react'
 import Carousel from './carousel'
+import Banner from './banner'
 
 type Props = {
   games: []
@@ -54,11 +55,14 @@ class Mame extends React.Component implements MameType {
   render() {
     const { openGame, isOpen, games } = this.props
     return (games.length>0) ? (
-      <Carousel
-        openGame={openGame}
-        paused={isOpen}
-        games={games}
-        ref={this.carousel} />
+      <>
+        <Banner name="COVID 2020" />
+        <Carousel
+          openGame={openGame}
+          paused={isOpen}
+          games={games}
+          ref={this.carousel} />
+      </>
     ) : <div ref={this.carousel}>loading...</div>
   }
 }

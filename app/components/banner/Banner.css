@@ -1,0 +1,28 @@
+.Banner {
+  height: 10vh;
+  display: flex;
+  flex-direction: row;
+}
+.Banner div {
+  flex: 1;
+  display: flex;
+  flex-wrap: nowrap;
+  margin: 0 1rem;
+}
+.Banner div button {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  margin: auto;
+  background: none;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+.Banner h1 {
+  flex: 10;
+  font-size: 8vh;
+  line-height: 3vh;
+  text-align: center;
+  font-family: 'Bungee Outline', cursive;
+}

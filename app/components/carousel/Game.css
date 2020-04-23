@@ -1,7 +1,7 @@
 .Game {
   border-radius: 1rem;
   border: 2px solid white;
-  height: 80vh;
+  height: 70vh;
   overflow: hidden;
   display: flex;
   flex-direction: column;
