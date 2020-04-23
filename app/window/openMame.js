@@ -8,10 +8,11 @@ const openMame = ({game, mamePath, mameExec}, cb) => {
   return exec(cmd, options, cb)
 }
 
-const openWindow = (web) => (props) => {
-  const process = openMame(props, callback(web))
+const openWindow = (browserWindow) => (props) => {
+  const process = openMame(props, callback(browserWindow.webContents))
   process.on('exit', (code) => {
-    web.send(processExitChannel(process.pid), code)
+    browserWindow.webContents.send(processExitChannel(process.pid), code)
+    browserWindow.setFullScreen(true)
   })
   return Promise.resolve(process)
 }

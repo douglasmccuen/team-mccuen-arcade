@@ -10,8 +10,10 @@ export default class WindowManager {
   }
 
   activate() {
+    this.mainWindow.setFullScreen(true)
     ipcMain.handle(OPEN_WINDOW, async (event, props) => {
-      const result = await openMameWindow(this.mainWindow.webContents)(props)
+      const result = await openMameWindow(this.mainWindow)(props)
+      this.mainWindow.setFullScreen(false)
       return result
     })
   }
