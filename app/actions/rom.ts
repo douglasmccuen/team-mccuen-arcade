@@ -1,5 +1,6 @@
 /* eslint no-console: 0 */
-import openMame from './helpers/openMame';
+import { ipcRenderer } from 'electron'
+import { errorChannel, processExitChannel, OPEN_WINDOW } from '../window/constants'
 
 export const OPEN_ROM = 'OPEN_ROM';
 export const CLOSE_ROM = 'CLOSE_ROM';
@@ -30,7 +31,7 @@ export function closeGame(kill: bool) {
 }
 
 export function openGame(game: string) {
-  return (dispatch: Dispatch, getState: GetState) => {
+  return async (dispatch: Dispatch, getState: GetState) => {
 
     const { mameProcess, isOpen } = getState().rom
     const { mamePath, mameExec } = getState().config
@@ -38,32 +39,17 @@ export function openGame(game: string) {
     // abort if it is already open
     if (isOpen || mameProcess) return
 
-    const callback = (error, stdout, stderr) => {
-      if (error) {
-        console.error(error)
-        dispatch(closeRom(false))
-      }
-      // NOTE: the script being called doesn't return a buffer, so stdout and stderr will be strings
-      // Perhaps calling mame directly will result in a buffer.
-      /*
-      stdout.on('data', (data) => {
-        console.log(data.toString());
-      })
+    const { pid } = await ipcRenderer.invoke(OPEN_WINDOW, {game, mamePath, mameExec})
+    if (pid) {
 
-      stderr.on('data', (data) => {
-        console.error(data.toString());
-      })
-      */
-      console.log(stdout)
-      console.log(stderr)
-    }
-
-    const process = openMame({game, mamePath, mameExec}, callback)
-    if (process) {
-
-      process.on('exit', (code) => {
+      ipcRenderer.on(processExitChannel(pid), (event, code) => {
         dispatch(closeGame(false))
-        console.log(`Mame exited with code ${code}`);
+        console.log(`Mame exited with code: ${code}`);
+      })
+
+      ipcRenderer.on(errorChannel, (event, message) => {
+        console.error(`Failed to open mame window: ${message}`)
+        dispatch(closeRom(false))
       })
 
       setTimeout(() => {
