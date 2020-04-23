@@ -1,7 +1,7 @@
 /* eslint react/prop-types: off */
 /* eslint react/jsx-closing-bracket-location: off */
 
-import React from 'react'
+import React, { RefObject } from 'react'
 import Carousel from './carousel'
 import Banner from './banner'
 
@@ -10,9 +10,11 @@ type Props = {
   openGame: () => void
   closeGame: () => void
   refreshConfig: () => void
-  isWindowMuted: () => void
+  isWindowMuted: boolean
+  getIsWindowMuted: () => void
   muteWindow: () => void
-  isOSMuted: () => void
+  isOSMuted: boolean
+  getIsOSMuted: () => void
   muteOS: () => void
   setOSVolumeLevel: () => void
   getOSVolumeLevel: () => void
@@ -20,11 +22,10 @@ type Props = {
 };
 
 interface MameType {
-  carousel: React.Ref
-  props: Props
+  carousel: RefObject<unknown>
 }
 
-class Mame extends React.Component implements MameType {
+class Mame extends React.Component<Props> implements MameType {
 
   carousel = React.createRef()
 
@@ -35,12 +36,12 @@ class Mame extends React.Component implements MameType {
 
   componentDidMount() {
     const {
-      refreshConfig, isWindowMuted, isOSMuted, getOSVolumeLevel
+      refreshConfig, getIsWindowMuted, getIsOSMuted, getOSVolumeLevel
     } = this.props
     this.focusCarouselInput()
     refreshConfig()
-    isWindowMuted()
-    isOSMuted()
+    getIsWindowMuted()
+    getIsOSMuted()
     getOSVolumeLevel()
   }
 
@@ -53,10 +54,15 @@ class Mame extends React.Component implements MameType {
   }
 
   render() {
-    const { openGame, isOpen, games } = this.props
+    const { openGame, isOpen, games, isOSMuted, muteOS, setOSVolumeLevel } = this.props
     return (games.length>0) ? (
       <>
-        <Banner name="COVID 2020" />
+        <Banner
+          onSleep={()=>{}}
+          onMute={() => {muteOS(!isOSMuted)}}
+          onVolUp={()=>{setOSVolumeLevel(80)}}
+          onVolDown={()=>{setOSVolumeLevel(20)}}
+          name="COVID 2020" />
         <Carousel
           openGame={openGame}
           paused={isOpen}

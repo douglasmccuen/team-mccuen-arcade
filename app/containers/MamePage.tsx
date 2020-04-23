@@ -4,14 +4,15 @@ import Mame from '../components/Mame';
 import { openGame, closeGame } from '../actions/rom';
 import refreshConfig from '../actions/config';
 import {
-  isWindowMuted, muteWindow, isOSMuted, muteOS, setOSVolumeLevel,
+  isWindowMuted as getIsWindowMuted, muteWindow, isOSMuted as getIsOSMuted, muteOS, setOSVolumeLevel,
   getOSVolumeLevel
 } from '../actions/window'
-import { romStateType } from '../reducers/types';
+import { appStateType } from '../reducers/types';
 
-function mapStateToProps(state: romStateType) {
+function mapStateToProps(state: appStateType) {
   const { isOpen } = state.rom
   const { roms=[] } = state.config
+  const { isOSMuted, isWindowMuted } = state.win
 
   // sort the games by name
   const games = [].concat(roms)
@@ -19,13 +20,14 @@ function mapStateToProps(state: romStateType) {
     return a.name.localeCompare(b.name)
   })
 
-  return { isOpen, games };
+  return { isOpen, games, isOSMuted, isWindowMuted }
 }
 
 function mapDispatchToProps(dispatch: Dispatch) {
   return bindActionCreators({
-    openGame, closeGame, refreshConfig, isWindowMuted, muteWindow, isOSMuted,
-    muteOS, setOSVolumeLevel, getOSVolumeLevel
+    openGame, closeGame, refreshConfig, muteWindow,
+    getIsWindowMuted, getIsOSMuted,
+    muteOS, setOSVolumeLevel, getOSVolumeLevel, onSleep: () => {}
   }, dispatch);
 }
 

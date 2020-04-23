@@ -73,9 +73,9 @@ export const isWindowMuted = () => {
   }
 }
 
-export const muteOS = () => {
+export const muteOS = (mute: boolean) => {
   return async (dispatch: Dispatch) => {
-    const isMute = await ipcRenderer.invoke(VOLUME_MUTE_OS, [])
+    const isMute = await ipcRenderer.invoke(VOLUME_MUTE_OS, { mute })
     dispatch(toggleMuteOS(isMute))
   }
 }
@@ -94,9 +94,9 @@ export const getOSVolumeLevel = () => {
   }
 }
 
-export const setOSVolumeLevel = () => {
+export const setOSVolumeLevel = (num: number) => {
   return async (dispatch: Dispatch) => {
-    const level = await ipcRenderer.invoke(SET_VOLUME_LEVEL, [])
+    const level = await ipcRenderer.invoke(SET_VOLUME_LEVEL, {level: num})
     dispatch(setOSVolume(level))
   }
 }
