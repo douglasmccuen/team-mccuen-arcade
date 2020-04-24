@@ -6,15 +6,16 @@ type Props = {
   game: string
   emulator: string
   image: string
+  preview: string
   description: string
   rating: number
-  isActive: bool
+  isActive: boolean
 }
 
 export default function Preview(props: Props) {
-  const { isActive, image } = props
+  const { isActive, preview } = props
   const style = {
-    backgroundImage: `url(${image})`
+    backgroundImage: `url(${preview})`
   }
   const css = [styles.Preview]
   if (isActive) css.push(styles.Active)
