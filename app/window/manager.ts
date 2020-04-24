@@ -1,7 +1,18 @@
-import { BrowserWindow, ipcMain, IpcMainInvokeEvent } from 'electron'
+import {
+  BrowserWindow, ipcMain, IpcMainInvokeEvent, globalShortcut
+} from 'electron'
 import sleep from 'suspend-pc'
 import openMameWindow from './openMameWindow'
 import { OPEN_WINDOW, SYSTEM_SLEEP, sleepErrorChannel } from './constants'
+
+const handleSleep = (win) => async () => {
+  sleep(err => {
+    if (err) {
+      win.webContents.send(sleepErrorChannel, err.message)
+    }
+  })
+  return true
+}
 
 export default class WindowManager {
   mainWindow: BrowserWindow
@@ -17,14 +28,14 @@ export default class WindowManager {
       this.mainWindow.setFullScreen(false)
       return result
     })
-    ipcMain.handle(SYSTEM_SLEEP, async () => {
-      sleep(err => {
-        if (err) {
-          this.mainWindow.webContents.send(sleepErrorChannel, err.message)
-        }
-      })
-      return true
-    })
+    ipcMain.handle(SYSTEM_SLEEP, handleSleep(this.mainWindow))
+
+    // add keyboard shortcuts
+    globalShortcut.register('4+Up', handleSleep(this.mainWindow))
+  }
+
+  goToSleep() {
+    handleSleep(this.mainWindow)
   }
 
 }

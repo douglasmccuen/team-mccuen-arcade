@@ -1,4 +1,6 @@
-import { BrowserWindow, ipcMain, IpcMainInvokeEvent } from 'electron'
+import {
+  BrowserWindow, ipcMain, IpcMainInvokeEvent, globalShortcut
+} from 'electron'
 import loudness from 'loudness'
 import {
   GET_VOLUME_MUTE_WINDOW, GET_VOLUME_MUTE_OS, VOLUME_MUTE_WINDOW,
@@ -16,10 +18,10 @@ const isWindowMuted = (win: BrowserWindow) => async () => {
   return webContents.audioMuted
 }
 
-const toggleOSMute = async (evt: IpcMainInvokeEvent, props: object) => {
-  const { mute } = props
-  loudness.setMuted(mute)
-  return mute
+const toggleOSMute = async () => {
+  const muted = await loudness.getMuted()
+  loudness.setMuted(!muted)
+  return !muted
 }
 
 const isOSMuted = async () => {
@@ -56,6 +58,10 @@ export default class AudioManager {
     ipcMain.handle(VOLUME_MUTE_OS, toggleOSMute)
     ipcMain.handle(GET_VOLUME_LEVEL, getOSVolume)
     ipcMain.handle(SET_VOLUME_LEVEL, setOSVolume)
+
+    // add keyboard shortcuts
+    // Player 1 side button 2 AND Player 2 Joystick down
+    globalShortcut.register('3+F', toggleOSMute)
   }
 
 }
