@@ -20,6 +20,7 @@ type Props = {
   getOSVolumeLevel: () => void
   onSleep: () => void
   isOpen: boolean
+  volumeLevel: number
 };
 
 interface MameType {
@@ -56,15 +57,19 @@ class Mame extends React.Component<Props> implements MameType {
 
   render() {
     const {
-      openGame, isOpen, games, isOSMuted, muteOS, setOSVolumeLevel, onSleep
+      openGame, isOpen, games, isOSMuted, muteOS, setOSVolumeLevel, onSleep,
+      volumeLevel
     } = this.props
+    const volumeInc = 5
     return (games.length>0) ? (
       <>
         <Banner
           onSleep={onSleep}
           onMute={() => {muteOS(!isOSMuted)}}
-          onVolUp={()=>{setOSVolumeLevel(80)}}
-          onVolDown={()=>{setOSVolumeLevel(20)}}
+          onVolUp={()=>{setOSVolumeLevel(volumeLevel+volumeInc)}}
+          onVolDown={()=>{setOSVolumeLevel(volumeLevel-volumeInc)}}
+          volumeLevel={volumeLevel}
+          isMuted={isOSMuted}
           name="COVID 2020" />
         <Carousel
           openGame={openGame}

@@ -1,7 +1,6 @@
-/* eslint jsx-a11y/control-has-associated-label: off */
 import React from 'react'
+import IconButton from './Button'
 import styles from './Banner.css'
-
 
 type Props = {
   name: string
@@ -9,18 +8,20 @@ type Props = {
   onMute: () => void
   onVolUp: () => void
   onVolDown: () => void
+  isMuted: boolean
+  volumeLevel: number
 }
 
-const Banner = ({ name, onSleep, onMute, onVolUp, onVolDown }: Props) => (
+const Banner = ({ name, onSleep, onMute, onVolUp, onVolDown, isMuted, volumeLevel }: Props) => (
   <div className={styles.Banner}>
-    <div className={styles.Sleep}>
-      <button type="button" onClick={onSleep}><i className="fa fa-bed fa-3x" /></button>
-      <button type="button" onClick={onMute}><i className="fa fa-volume-mute fa-3x" /></button>
+    <div>
+      <IconButton icon="fa-bed" handleClick={onSleep} />
+      <IconButton icon={(isMuted)?'fa-volume-off':'fa-volume-mute'} handleClick={onMute} />
     </div>
     <h1>{name}</h1>
-    <div className={styles.Audio}>
-      <button type="button" onClick={onVolDown}><i className="fa fa-volume-down fa-3x" /></button>
-      <button type="button" onClick={onVolUp}><i className="fa fa-volume-up fa-3x" /></button>
+    <div>
+      <IconButton disabled={(volumeLevel <= 0)} icon="fa-volume-down" handleClick={onVolDown} />
+      <IconButton disabled={(volumeLevel >= 100)} icon="fa-volume-up" handleClick={onVolUp} />
     </div>
   </div>
 )

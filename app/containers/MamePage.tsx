@@ -12,7 +12,7 @@ import { appStateType } from '../reducers/types';
 function mapStateToProps(state: appStateType) {
   const { isOpen } = state.rom
   const { roms=[] } = state.config
-  const { isOSMuted, isWindowMuted } = state.win
+  const { isOSMuted, isWindowMuted, volumeLevel } = state.win
 
   // sort the games by name
   const games = [].concat(roms)
@@ -20,7 +20,7 @@ function mapStateToProps(state: appStateType) {
     return a.name.localeCompare(b.name)
   })
 
-  return { isOpen, games, isOSMuted, isWindowMuted }
+  return { isOpen, games, isOSMuted, isWindowMuted, volumeLevel }
 }
 
 function mapDispatchToProps(dispatch: Dispatch) {
