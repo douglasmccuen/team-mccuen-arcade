@@ -1,9 +1,9 @@
 /* eslint react/jsx-props-no-spreading: off */
 /* eslint react/no-array-index-key: off */
 /* eslint react/jsx-closing-bracket-location: off */
-
 import React from 'react'
 import useCarousel from './useCarousel'
+import Sound from './sound'
 import styles from './Carousel.css'
 import Game from './Game'
 import Preview from './Preview'
@@ -72,6 +72,9 @@ const Carousel = React.forwardRef((props: Props, ref) => {
           </li>
         ))}
       </ol>
+      {
+        (isMoving) ? <Sound /> : null
+      }
     </div>
   )
 })

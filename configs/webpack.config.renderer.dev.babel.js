@@ -167,9 +167,9 @@ export default merge.smart(baseConfig, {
           }
         }
       },
-      // EOT Font
+      // EOT Font or sounds
       {
-        test: /\.eot(\?v=\d+\.\d+\.\d+)?$/,
+        test: /\.eot(\?v=\d+\.\d+\.\d+)?$|\.wav$|\.mp3$/,
         use: 'file-loader'
       },
       // SVG Font

@@ -16,7 +16,7 @@ const roms = {
       preview: 'https://team-mccuen.s3-us-west-2.amazonaws.com/images/better/burgertime.png',
       image: 'https://team-mccuen.s3-us-west-2.amazonaws.com/images/BTIME.png',
       rating: 5,
-      description: 'They were putting eggs on burgers before it was cool.Don\'t forget to use your pepper.'
+      description: 'They were putting eggs on burgers before it was cool.  Don\'t forget to use your pepper.'
     },
     {
       game: 'cninja',
