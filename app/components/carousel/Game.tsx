@@ -21,7 +21,7 @@ export default function Game(props: Props) {
     name, image, description, isActive, isPreActive, isPrePreActive,
     isPostActive, isPostPostActive, isMoving
   } = props
-  
+
   const css = [styles.Game]
   if (isMoving) css.push(styles.isMoving)
   if (isActive) css.push(styles.Active)
@@ -30,9 +30,13 @@ export default function Game(props: Props) {
   if (!isMoving && isPostActive) css.push(styles.PostActive)
   if (isPostPostActive) css.push(styles.PostPostActive)
 
+  const style = {
+    backgroundImage: `url(${image})`
+  }
+
   return (
     <div className={css.join(' ')}>
-      <div className={styles.Image}><img src={image} alt={name} /></div>
+      <div className={styles.Image} style={style} />
       <div className={styles.Name}>{ name }</div>
       <div className={styles.Desc}>{ description }</div>
     </div>

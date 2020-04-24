@@ -9,12 +9,6 @@
   transform: scale(0.8);
   transition: transform 400ms ease;
 }
-.Game img {
-  width: 300%;
-  position: absolute;
-  top: -10px;
-  left: -100%;
-}
 
 .Active {
   border-color: yellow;
@@ -37,9 +31,10 @@
 }
 
 .Image {
-  position: relative;
-  overflow: hidden;
   flex: 2;
+  background-position: center 80%;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 .Name {
   color: white;
@@ -47,6 +42,7 @@
   padding: 0.5rem 1rem;
   font-weight: bold;
   text-overflow: ellipsis;
+  white-space: nowrap;
   flex: 0;
 }
 .Desc {
