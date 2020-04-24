@@ -8,12 +8,12 @@ type Props = {
   image: string
   description: string
   rating: number
-  isActive: bool
-  isPreActive: bool
-  isPrePreActive: bool
-  isPostActive: bool
-  isPostPostActive: bool
-  isMoving: bool
+  isActive: boolean
+  isPreActive: boolean
+  isPrePreActive: boolean
+  isPostActive: boolean
+  isPostPostActive: boolean
+  isMoving: boolean
 }
 
 export default function Game(props: Props) {
