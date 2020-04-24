@@ -4,7 +4,7 @@ const roms = {
       game: 'alpinerd',
       name: 'Alpine Racer',
       emulator: 'mame',
-      image: 'https://team-mccuen.s3-us-west-2.amazonaws.com/images/22298-ingame-Alpine-Racer.jpg',
+      image: 'https://team-mccuen.s3-us-west-2.amazonaws.com/images/better/alpineracer.jpg',
       rating: 5,
       description: ''
     },
@@ -12,7 +12,7 @@ const roms = {
       game: 'btimem',
       name: 'Burger Time',
       emulator: 'mame',
-      image: 'https://team-mccuen.s3-us-west-2.amazonaws.com/images/BTIME.png',
+      image: 'https://team-mccuen.s3-us-west-2.amazonaws.com/images/better/burgertime.png',
       rating: 5,
       description: ''
     },
@@ -20,7 +20,7 @@ const roms = {
       game: 'cninja',
       name: 'Caveman Ninja',
       emulator: 'mame',
-      image: 'https://team-mccuen.s3-us-west-2.amazonaws.com/images/cninja.png',
+      image: 'https://team-mccuen.s3-us-west-2.amazonaws.com/images/better/cninja.png',
       rating: 5,
       description: ''
     },
@@ -28,7 +28,7 @@ const roms = {
       game: 'centiped',
       name: 'Centipede',
       emulator: 'mame',
-      image: 'https://team-mccuen.s3-us-west-2.amazonaws.com/images/centiped.png',
+      image: 'https://team-mccuen.s3-us-west-2.amazonaws.com/images/better/centepede.jpg',
       rating: 5,
       description: ''
     },
@@ -36,7 +36,7 @@ const roms = {
       game: 'crusnusa',
       name: "Cruis'n USA",
       emulator: 'mame',
-      image: 'https://team-mccuen.s3-us-west-2.amazonaws.com/images/15633-ingame-Cruisn-USA.jpg',
+      image: 'https://team-mccuen.s3-us-west-2.amazonaws.com/images/better/cruisinusa.jpg',
       rating: 5,
       description: ''
     },
@@ -44,7 +44,7 @@ const roms = {
       game: 'digdug',
       name: 'Dig Dug',
       emulator: 'mame',
-      image: 'https://team-mccuen.s3-us-west-2.amazonaws.com/images/9512-ingame-Dig-Dug.jpg',
+      image: 'https://team-mccuen.s3-us-west-2.amazonaws.com/images/better/digdug.jpg',
       rating: 5,
       description: ''
     },
@@ -52,7 +52,7 @@ const roms = {
       game: 'dkong',
       name: 'Donkey Kong',
       emulator: 'mame',
-      image: 'https://team-mccuen.s3-us-west-2.amazonaws.com/images/dkong.png',
+      image: 'https://team-mccuen.s3-us-west-2.amazonaws.com/images/better/dkong.png',
       rating: 5,
       description: 'Dad\'s favorite game of all time...'
     },
@@ -60,7 +60,7 @@ const roms = {
       game: 'frogger',
       name: 'Frogger',
       emulator: 'mame',
-      image: 'https://team-mccuen.s3-us-west-2.amazonaws.com/images/frogger.png',
+      image: 'https://team-mccuen.s3-us-west-2.amazonaws.com/images/better/frogger.png',
       rating: 5,
       description: ''
     },
@@ -68,7 +68,7 @@ const roms = {
       game: 'galaga',
       name: 'Galaga',
       emulator: 'mame',
-      image: 'https://team-mccuen.s3-us-west-2.amazonaws.com/images/galaga.png',
+      image: 'https://team-mccuen.s3-us-west-2.amazonaws.com/images/better/galaga.jpg',
       rating: 5,
       description: ''
     },
@@ -76,7 +76,7 @@ const roms = {
       game: 'atetris',
       name: 'Tetris',
       emulator: 'mame',
-      image: 'https://team-mccuen.s3-us-west-2.amazonaws.com/images/10899-ingame-Vs-Tetris.jpg',
+      image: 'https://team-mccuen.s3-us-west-2.amazonaws.com/images/better/tetris.jpg',
       rating: 1,
       description: ''
     },
@@ -84,7 +84,7 @@ const roms = {
       game: 'defenderb',
       name: 'Defender',
       emulator: 'mame',
-      image: 'https://team-mccuen.s3-us-west-2.amazonaws.com/images/defender.png',
+      image: 'https://team-mccuen.s3-us-west-2.amazonaws.com/images/better/defender.png',
       rating: 3,
       description: ''
     },
@@ -92,7 +92,7 @@ const roms = {
       game: 'galaxian',
       name: 'Galaxian',
       emulator: 'mame',
-      image: 'https://team-mccuen.s3-us-west-2.amazonaws.com/images/galaxian.png',
+      image: 'https://team-mccuen.s3-us-west-2.amazonaws.com/images/better/galaxian.png',
       rating: 4,
       description: ''
     },
@@ -100,7 +100,7 @@ const roms = {
       game: 'kungfum',
       name: 'Kung-fu Master',
       emulator: 'mame',
-      image: 'https://team-mccuen.s3-us-west-2.amazonaws.com/images/9894-ingame-Kung-Fu-Master.jpg',
+      image: 'https://team-mccuen.s3-us-west-2.amazonaws.com/images/better/kungfumaster.jpg',
       rating: 5,
       description: ''
     },
@@ -108,7 +108,7 @@ const roms = {
       game: 'marble',
       name: 'Marble Madness',
       emulator: 'mame',
-      image: 'https://team-mccuen.s3-us-west-2.amazonaws.com/images/marble.png',
+      image: 'https://team-mccuen.s3-us-west-2.amazonaws.com/images/better/marble.png',
       rating: 5,
       description: ''
     },
@@ -116,7 +116,7 @@ const roms = {
       game: 'mpatrol',
       name: 'Moon Patrol',
       emulator: 'mame',
-      image: 'https://team-mccuen.s3-us-west-2.amazonaws.com/images/mpatrol.png',
+      image: 'https://team-mccuen.s3-us-west-2.amazonaws.com/images/better/mpatrol.png',
       rating: 5,
       description: ''
     },
@@ -124,7 +124,7 @@ const roms = {
       game: 'mspacman',
       name: 'Ms Pacman',
       emulator: 'mame',
-      image: 'https://team-mccuen.s3-us-west-2.amazonaws.com/images/11106-ingame-Ms-Pacman.jpg',
+      image: 'https://team-mccuen.s3-us-west-2.amazonaws.com/images/better/mspacman.jpg',
       rating: 5,
       description: ''
     },
@@ -132,7 +132,7 @@ const roms = {
       game: 'pacman',
       name: 'Pacman',
       emulator: 'mame',
-      image: 'https://team-mccuen.s3-us-west-2.amazonaws.com/images/11178-ingame-Pacman.jpg',
+      image: 'https://team-mccuen.s3-us-west-2.amazonaws.com/images/better/pacman.gif',
       rating: 5,
       description: ''
     },
@@ -140,7 +140,7 @@ const roms = {
       game: 'paperboyr2',
       name: 'Paperboy',
       emulator: 'mame',
-      image: 'https://team-mccuen.s3-us-west-2.amazonaws.com/images/paperboy.png',
+      image: 'https://team-mccuen.s3-us-west-2.amazonaws.com/images/better/paperboy.png',
       rating: 5,
       description: ''
     },
@@ -148,7 +148,7 @@ const roms = {
       game: 'rampage',
       name: 'Rampage',
       emulator: 'mame',
-      image: 'https://team-mccuen.s3-us-west-2.amazonaws.com/images/rampage.png',
+      image: 'https://team-mccuen.s3-us-west-2.amazonaws.com/images/better/rampage.png',
       rating: 5,
       description: ''
     },
@@ -156,7 +156,7 @@ const roms = {
       game: 'sf2',
       name: 'Street Fighter 2',
       emulator: 'mame',
-      image: 'https://team-mccuen.s3-us-west-2.amazonaws.com/images/download.jpg',
+      image: 'https://team-mccuen.s3-us-west-2.amazonaws.com/images/better/streetfighter2.jpg',
       rating: 5,
       description: ''
     },
@@ -164,7 +164,7 @@ const roms = {
       game: 'shinobi',
       name: 'Shinobi',
       emulator: 'mame',
-      image: 'https://team-mccuen.s3-us-west-2.amazonaws.com/images/shinobi.png',
+      image: 'https://team-mccuen.s3-us-west-2.amazonaws.com/images/better/shinobi.png',
       rating: 5,
       description: ''
     },
@@ -172,7 +172,7 @@ const roms = {
       game: 'simpsons2p2',
       name: 'The Simpsons',
       emulator: 'mame',
-      image: 'https://team-mccuen.s3-us-west-2.amazonaws.com/images/10529-ingame-Simpsons-The.jpg',
+      image: 'https://team-mccuen.s3-us-west-2.amazonaws.com/images/better/simpsons.jpg',
       rating: 5,
       description: ''
     },
@@ -180,7 +180,7 @@ const roms = {
       game: 'excitebk',
       name: 'Excite Bike',
       emulator: 'mame',
-      image: 'https://team-mccuen.s3-us-west-2.amazonaws.com/images/excitbkj.png',
+      image: 'https://team-mccuen.s3-us-west-2.amazonaws.com/images/better/excitbkj.png',
       rating: 5,
       description: ''
     },
@@ -188,7 +188,7 @@ const roms = {
       game: 'indytemp',
       name: 'Indiana Jones',
       emulator: 'mame',
-      image: 'https://team-mccuen.s3-us-west-2.amazonaws.com/images/9812-title-Indiana-Jones-and-the-Temple-of-Doom.jpg',
+      image: 'https://team-mccuen.s3-us-west-2.amazonaws.com/images/better/indianjones.jpg',
       rating: 5,
       description: ''
     },
@@ -196,7 +196,7 @@ const roms = {
       game: 'joust',
       name: 'Joust',
       emulator: 'mame',
-      image: 'https://team-mccuen.s3-us-west-2.amazonaws.com/images/joust.png',
+      image: 'https://team-mccuen.s3-us-west-2.amazonaws.com/images/better/joust.jpg',
       rating: 5,
       description: ''
     },
@@ -204,7 +204,7 @@ const roms = {
       game: 'mwalk',
       name: 'Moonwalker',
       emulator: 'mame',
-      image: 'https://team-mccuen.s3-us-west-2.amazonaws.com/images/mwalk.png',
+      image: 'https://team-mccuen.s3-us-west-2.amazonaws.com/images/better/mwalk.png',
       rating: 5,
       description: ''
     },
@@ -212,7 +212,7 @@ const roms = {
       game: 'spidman',
       name: 'Spiderman',
       emulator: 'mame',
-      image: 'https://team-mccuen.s3-us-west-2.amazonaws.com/images/10993-menu-Spider-Man-the-Videogame.jpg',
+      image: 'https://team-mccuen.s3-us-west-2.amazonaws.com/images/better/spiderman.jpg',
       rating: 5,
       description: ''
     },
@@ -220,7 +220,7 @@ const roms = {
       game: 'splatter',
       name: 'Splatter House',
       emulator: 'mame',
-      image: 'https://team-mccuen.s3-us-west-2.amazonaws.com/images/10630-ingame-Splatter-House.jpg',
+      image: 'https://team-mccuen.s3-us-west-2.amazonaws.com/images/better/splatterhouse.jpg',
       rating: 5,
       description: ''
     },
@@ -228,7 +228,7 @@ const roms = {
       game: 'spyhunt',
       name: 'Spy Hunter',
       emulator: 'mame',
-      image: 'https://team-mccuen.s3-us-west-2.amazonaws.com/images/spyhunt.png',
+      image: 'https://team-mccuen.s3-us-west-2.amazonaws.com/images/better/spyhunter.jpg',
       rating: 5,
       description: ''
     },
@@ -236,7 +236,7 @@ const roms = {
       game: 'ssridersubc',
       name: 'Sunset Riders',
       emulator: 'mame',
-      image: 'https://team-mccuen.s3-us-west-2.amazonaws.com/images/10674-ingame-Sunset-Riders.jpg',
+      image: 'https://team-mccuen.s3-us-west-2.amazonaws.com/images/better/sunsetriders.jpg',
       rating: 5,
       description: ''
     },
@@ -244,7 +244,7 @@ const roms = {
       game: 'tmnt',
       name: 'Teenage Mutant Ninja Turtles',
       emulator: 'mame',
-      image: 'https://team-mccuen.s3-us-west-2.amazonaws.com/images/10754-ingame-Teenage-Mutant-Ninja-Turtles.jpg',
+      image: 'https://team-mccuen.s3-us-west-2.amazonaws.com/images/better/tmnt.jpg',
       rating: 5,
       description: ''
     },
@@ -252,7 +252,7 @@ const roms = {
       game: 'trackfld',
       name: 'Track and Field',
       emulator: 'mame',
-      image: 'https://team-mccuen.s3-us-west-2.amazonaws.com/images/trackfld.png',
+      image: 'https://team-mccuen.s3-us-west-2.amazonaws.com/images/better/trckfld.gif',
       rating: 5,
       description: ''
     },
@@ -260,7 +260,7 @@ const roms = {
       game: 'zaxxon',
       name: 'Zaxxon',
       emulator: 'mame',
-      image: 'https://team-mccuen.s3-us-west-2.amazonaws.com/images/zaxxon.png',
+      image: 'https://team-mccuen.s3-us-west-2.amazonaws.com/images/better/zaxxon.png',
       rating: 5,
       description: ''
     },
