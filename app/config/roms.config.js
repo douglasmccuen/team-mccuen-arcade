@@ -7,7 +7,7 @@ const roms = {
       preview: 'https://team-mccuen.s3-us-west-2.amazonaws.com/images/better/alpineracer.jpg',
       image: 'https://team-mccuen.s3-us-west-2.amazonaws.com/images/22298-ingame-Alpine-Racer.jpg',
       rating: 5,
-      description: ''
+      description: 'This game is pretty cool, but it needs a computer faster than our little mac mini to run the super advanced animation.'
     },
     {
       game: 'btimem',
@@ -16,7 +16,7 @@ const roms = {
       preview: 'https://team-mccuen.s3-us-west-2.amazonaws.com/images/better/burgertime.png',
       image: 'https://team-mccuen.s3-us-west-2.amazonaws.com/images/BTIME.png',
       rating: 5,
-      description: ''
+      description: 'They were putting eggs on burgers before it was cool.Don\'t forget to use your pepper.'
     },
     {
       game: 'cninja',
@@ -32,7 +32,7 @@ const roms = {
       name: 'Centipede',
       emulator: 'mame',
       preview: 'https://team-mccuen.s3-us-west-2.amazonaws.com/images/better/centepede.jpg',
-      image: 'https://team-mccuen.s3-us-west-2.amazonaws.com/images/better/centepede.jpg',
+      image: 'https://team-mccuen.s3-us-west-2.amazonaws.com/images/games/centipede.jpg',
       rating: 5,
       description: ''
     },
@@ -44,6 +44,15 @@ const roms = {
       image: 'https://team-mccuen.s3-us-west-2.amazonaws.com/images/15633-ingame-Cruisn-USA.jpg',
       rating: 5,
       description: ''
+    },
+    {
+      game: 'defenderb',
+      name: 'Defender',
+      emulator: 'mame',
+      preview: 'https://team-mccuen.s3-us-west-2.amazonaws.com/images/better/defender.png',
+      image: 'https://team-mccuen.s3-us-west-2.amazonaws.com/images/games/defender.png',
+      rating: 3,
+      description: 'I think the image says it all... there isn\'t much going on in this game.'
     },
     {
       game: 'digdug',
@@ -61,7 +70,16 @@ const roms = {
       preview: 'https://team-mccuen.s3-us-west-2.amazonaws.com/images/better/dkong.png',
       image: 'https://team-mccuen.s3-us-west-2.amazonaws.com/images/dkong.png',
       rating: 5,
-      description: 'Dad\'s favorite game of all time...'
+      description: 'Dad\'s favorite game of all time... Not sure he\'s seen anything beyond level 3.'
+    },
+    {
+      game: 'excitebk',
+      name: 'Excite Bike',
+      emulator: 'mame',
+      preview: 'https://team-mccuen.s3-us-west-2.amazonaws.com/images/better/excitbkj.png',
+      image: 'https://team-mccuen.s3-us-west-2.amazonaws.com/images/excitbkj.png',
+      rating: 5,
+      description: ''
     },
     {
       game: 'frogger',
@@ -77,26 +95,8 @@ const roms = {
       name: 'Galaga',
       emulator: 'mame',
       preview: 'https://team-mccuen.s3-us-west-2.amazonaws.com/images/better/galaga.jpg',
-      image: 'https://team-mccuen.s3-us-west-2.amazonaws.com/images/better/galaga.jpg',
+      image: 'https://team-mccuen.s3-us-west-2.amazonaws.com/images/games/galaga.jpg',
       rating: 5,
-      description: ''
-    },
-    {
-      game: 'atetris',
-      name: 'Tetris',
-      emulator: 'mame',
-      preview: 'https://team-mccuen.s3-us-west-2.amazonaws.com/images/better/tetris.jpg',
-      image: 'https://team-mccuen.s3-us-west-2.amazonaws.com/images/better/tetris.jpg',
-      rating: 1,
-      description: ''
-    },
-    {
-      game: 'defenderb',
-      name: 'Defender',
-      emulator: 'mame',
-      preview: 'https://team-mccuen.s3-us-west-2.amazonaws.com/images/better/defender.png',
-      image: 'https://team-mccuen.s3-us-west-2.amazonaws.com/images/defender.png',
-      rating: 3,
       description: ''
     },
     {
@@ -104,8 +104,26 @@ const roms = {
       name: 'Galaxian',
       emulator: 'mame',
       preview: 'https://team-mccuen.s3-us-west-2.amazonaws.com/images/better/galaxian.png',
-      image: 'https://team-mccuen.s3-us-west-2.amazonaws.com/images/better/galaxian.png',
+      image: 'https://team-mccuen.s3-us-west-2.amazonaws.com/images/games/galaxian.png',
       rating: 4,
+      description: ''
+    },
+    {
+      game: 'indytemp',
+      name: 'Indiana Jones',
+      emulator: 'mame',
+      preview: 'https://team-mccuen.s3-us-west-2.amazonaws.com/images/better/indianjones.jpg',
+      image: 'https://team-mccuen.s3-us-west-2.amazonaws.com/images/9812-title-Indiana-Jones-and-the-Temple-of-Doom.jpg',
+      rating: 5,
+      description: ''
+    },
+    {
+      game: 'joust',
+      name: 'Joust',
+      emulator: 'mame',
+      preview: 'https://team-mccuen.s3-us-west-2.amazonaws.com/images/better/joust.jpg',
+      image: 'https://team-mccuen.s3-us-west-2.amazonaws.com/images/games/joust.png',
+      rating: 5,
       description: ''
     },
     {
@@ -136,11 +154,20 @@ const roms = {
       description: ''
     },
     {
+      game: 'mwalk',
+      name: 'Moonwalker',
+      emulator: 'mame',
+      preview: 'https://team-mccuen.s3-us-west-2.amazonaws.com/images/better/mwalk.png',
+      image: 'https://team-mccuen.s3-us-west-2.amazonaws.com/images/games/moonwalker.png',
+      rating: 5,
+      description: 'Finding an image for this game that wasn\'t an animated gif was hard.  There is just too much awesome to described here.'
+    },
+    {
       game: 'mspacman',
       name: 'Ms Pacman',
       emulator: 'mame',
       preview: 'https://team-mccuen.s3-us-west-2.amazonaws.com/images/better/mspacman.jpg',
-      image: 'https://team-mccuen.s3-us-west-2.amazonaws.com/images/better/mspacman.jpg',
+      image: 'https://team-mccuen.s3-us-west-2.amazonaws.com/images/games/mspacman.jpg',
       rating: 5,
       description: ''
     },
@@ -149,7 +176,7 @@ const roms = {
       name: 'Pacman',
       emulator: 'mame',
       preview: 'https://team-mccuen.s3-us-west-2.amazonaws.com/images/better/pacman.gif',
-      image: 'https://team-mccuen.s3-us-west-2.amazonaws.com/images/better/pacman.gif',
+      image: 'https://team-mccuen.s3-us-west-2.amazonaws.com/images/games/pacman.png',
       rating: 5,
       description: ''
     },
@@ -172,65 +199,11 @@ const roms = {
       description: ''
     },
     {
-      game: 'sf2',
-      name: 'Street Fighter 2',
-      emulator: 'mame',
-      preview: 'https://team-mccuen.s3-us-west-2.amazonaws.com/images/better/streetfighter2.jpg',
-      image: 'https://team-mccuen.s3-us-west-2.amazonaws.com/images/download.jpg',
-      rating: 5,
-      description: ''
-    },
-    {
       game: 'shinobi',
       name: 'Shinobi',
       emulator: 'mame',
       preview: 'https://team-mccuen.s3-us-west-2.amazonaws.com/images/better/shinobi.png',
-      image: 'https://team-mccuen.s3-us-west-2.amazonaws.com/images/shinobi.png',
-      rating: 5,
-      description: ''
-    },
-    {
-      game: 'simpsons2p2',
-      name: 'The Simpsons',
-      emulator: 'mame',
-      preview: 'https://team-mccuen.s3-us-west-2.amazonaws.com/images/better/simpsons.jpg',
-      image: 'https://team-mccuen.s3-us-west-2.amazonaws.com/images/10529-ingame-Simpsons-The.jpg',
-      rating: 5,
-      description: ''
-    },
-    {
-      game: 'excitebk',
-      name: 'Excite Bike',
-      emulator: 'mame',
-      preview: 'https://team-mccuen.s3-us-west-2.amazonaws.com/images/better/excitbkj.png',
-      image: 'https://team-mccuen.s3-us-west-2.amazonaws.com/images/excitbkj.png',
-      rating: 5,
-      description: ''
-    },
-    {
-      game: 'indytemp',
-      name: 'Indiana Jones',
-      emulator: 'mame',
-      preview: 'https://team-mccuen.s3-us-west-2.amazonaws.com/images/better/indianjones.jpg',
-      image: 'https://team-mccuen.s3-us-west-2.amazonaws.com/images/9812-title-Indiana-Jones-and-the-Temple-of-Doom.jpg',
-      rating: 5,
-      description: ''
-    },
-    {
-      game: 'joust',
-      name: 'Joust',
-      emulator: 'mame',
-      preview: 'https://team-mccuen.s3-us-west-2.amazonaws.com/images/better/joust.jpg',
-      image: 'https://team-mccuen.s3-us-west-2.amazonaws.com/images/joust.png',
-      rating: 5,
-      description: ''
-    },
-    {
-      game: 'mwalk',
-      name: 'Moonwalker',
-      emulator: 'mame',
-      preview: 'https://team-mccuen.s3-us-west-2.amazonaws.com/images/better/mwalk.png',
-      image: 'https://team-mccuen.s3-us-west-2.amazonaws.com/images/mwalk.png',
+      image: 'https://team-mccuen.s3-us-west-2.amazonaws.com/images/games/shinobi.png',
       rating: 5,
       description: ''
     },
@@ -262,6 +235,15 @@ const roms = {
       description: ''
     },
     {
+      game: 'sf2',
+      name: 'Street Fighter 2',
+      emulator: 'mame',
+      preview: 'https://team-mccuen.s3-us-west-2.amazonaws.com/images/better/streetfighter2.jpg',
+      image: 'https://team-mccuen.s3-us-west-2.amazonaws.com/images/games/sf2.jpg',
+      rating: 5,
+      description: ''
+    },
+    {
       game: 'ssridersubc',
       name: 'Sunset Riders',
       emulator: 'mame',
@@ -276,6 +258,24 @@ const roms = {
       emulator: 'mame',
       preview: 'https://team-mccuen.s3-us-west-2.amazonaws.com/images/better/tmnt.jpg',
       image: 'https://team-mccuen.s3-us-west-2.amazonaws.com/images/10754-ingame-Teenage-Mutant-Ninja-Turtles.jpg',
+      rating: 5,
+      description: ''
+    },
+    {
+      game: 'atetris',
+      name: 'Tetris',
+      emulator: 'mame',
+      preview: 'https://team-mccuen.s3-us-west-2.amazonaws.com/images/better/tetris.jpg',
+      image: 'https://team-mccuen.s3-us-west-2.amazonaws.com/images/games/tetris.png',
+      rating: 1,
+      description: ''
+    },
+    {
+      game: 'simpsons2p2',
+      name: 'The Simpsons',
+      emulator: 'mame',
+      preview: 'https://team-mccuen.s3-us-west-2.amazonaws.com/images/better/simpsons.jpg',
+      image: 'https://team-mccuen.s3-us-west-2.amazonaws.com/images/10529-ingame-Simpsons-The.jpg',
       rating: 5,
       description: ''
     },
