@@ -3,15 +3,14 @@
 /* eslint react/jsx-closing-bracket-location: off */
 import React from 'react'
 import useCarousel from './useCarousel'
-import Sound from './sound'
 import styles from './Carousel.css'
 import Game from './Game'
 import Preview from './Preview'
 
 type Props = {
-  games: array
+  games: []
   openGame: () => void
-  paused: bool
+  paused: boolean
   ref: object
 }
 
@@ -22,11 +21,14 @@ const Carousel = React.forwardRef((props: Props, ref) => {
     const rom = games[idx]
     openGame(rom.game)
   }
-  const [active, handlers, style, isMoving] =
+  const [active, handlers, style, isMoving, isSpinning, jumpTo, spinIt] =
     useCarousel(length, 5000, onOpen, paused)
 
+  const cn = [styles.Carousel]
+  if (isSpinning) cn.push(styles.Spinning)
+
   return length>0 && (
-    <div className={styles.Carousel} {...handlers} ref={ref}>
+    <div className={cn.join(' ')} {...handlers} ref={ref}>
       <div className={styles.Content} style={style}>
         <div className={styles.Item}>
           <Game {...games[games.length - 3]} />
@@ -42,11 +44,13 @@ const Carousel = React.forwardRef((props: Props, ref) => {
             <Game
               {...game}
               isMoving={isMoving}
+              isSpinning={isSpinning}
               isPrePreActive={(active - key) === -2}
               isPreActive={(active - key) === -1}
               isActive={active === key}
               isPostActive={(active - key) === 1}
-              isPostPostActive={(active - key) === 2} />
+              isPostPostActive={(active - key) === 2}
+              handleClick={spinIt} />
           </div>
         ))}
         <div className={styles.Item}>
@@ -68,13 +72,13 @@ const Carousel = React.forwardRef((props: Props, ref) => {
       <ol className={styles.Indicators}>
         {games.map((_, key) => (
           <li key={key}>
-            <Preview {...games[key]} isActive={active === key} />
+            <Preview
+              {...games[key]}
+              isActive={active === key}
+              jumpTo={() => {jumpTo(key)}} />
           </li>
         ))}
       </ol>
-      {
-        (isMoving) ? <Sound /> : null
-      }
     </div>
   )
 })
