@@ -11,7 +11,7 @@ type returnTypes = [
   boolean,
   boolean,
   (n: number) => void,
-  (n1: number, n2: number) => void
+  () => void
 ]
 
 const useCarousel = (
@@ -64,7 +64,7 @@ const useCarousel = (
   }
 
   const handlers = {
-    onKeyDown: ({key}) => {
+    onKeyDown: ({key}: KeyboardEvent) => {
       // console.log(`key: ${key}`)
       if (keys.forward.includes(key)) {
         dispatch({ type: 'next', length, pause: 5 })
