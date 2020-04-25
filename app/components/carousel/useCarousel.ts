@@ -2,6 +2,7 @@
 import { useReducer, useEffect } from 'react'
 import { elastic, smooth, smoothSpin, initialState, keys } from './constants'
 import carouselReducer from './reducer'
+import {spinningEffect, nextEffect, doneEffect } from './effects'
 
 type returnTypes = [
   number,
@@ -22,26 +23,10 @@ const useCarousel = (
 
   const [state, dispatch] = useReducer(carouselReducer, initialState);
 
-  useEffect(() => {
-    if (paused || state.spinning) return () => {}
-    const timeout = state.pause * interval
-    const id = setTimeout(() => dispatch({ type: 'next', length }), timeout);
-    return () => clearTimeout(id);
-  }, [state.offset, state.active, state.pause, state.spinning]);
-
-  useEffect(() => {
-    if (paused || state.spinning) return () => {}
-    const { transitionTime } = state
-    const id = setTimeout(() => dispatch({ type: 'done' }), transitionTime);
-    return () => clearTimeout(id);
-  }, [state.desired, state.spinning]);
-
-  useEffect(() => {
-    if (paused || !state.spinning) return () => {}
-    const { spinCount } = state
-    const id = setTimeout(() => dispatch({ type: 'done' }), spinCount*1000);
-    return () => clearTimeout(id);
-  }, [state.spinning]);
+  // these trigger actions based on changing input
+  useEffect(nextEffect({paused, state, dispatch, length, interval}), [state.offset, state.active, state.pause, state.spinning]);
+  useEffect(doneEffect({paused, state, dispatch}), [state.desired, state.spinning]);
+  useEffect(spinningEffect({paused, state, dispatch}), [state.spinning]);
 
   // percentage of screen width for the game in the carousel
   const itemScale = 20
@@ -63,7 +48,6 @@ const useCarousel = (
       animationDuration: `${spinCount}s`,
       animationIterationCount: spinCount,
     }
-    // let notstyle = { width: `${itemScale * (length + extraItems)}%` }
   } else if (state.desired !== state.active) {
     const dist = Math.abs(state.active - state.desired);
     const pref = Math.sign(state.offset || 0);

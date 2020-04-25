@@ -11,15 +11,15 @@ interface CarouselState {
 interface CarouselNextAction {
   type: 'next';
   length: number;
-  transitionTime: number;
-  pause: number;
+  transitionTime?: number;
+  pause?: number;
 }
 
 interface CarouselPrevAction {
   type: 'prev';
   length: number;
-  transitionTime: number;
-  pause: number;
+  transitionTime?: number;
+  pause?: number;
 }
 
 interface CarouselJumpAction {
