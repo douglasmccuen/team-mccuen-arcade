@@ -24,12 +24,12 @@ type Props = {
 };
 
 interface MameType {
-  carousel: RefObject<unknown>
+  carousel: RefObject<HTMLDivElement>
 }
 
 class Mame extends React.Component<Props> implements MameType {
 
-  carousel = React.createRef()
+  carousel = React.createRef<HTMLDivElement>()
 
   constructor(props: Props) {
     super(props)
@@ -52,7 +52,10 @@ class Mame extends React.Component<Props> implements MameType {
   }
 
   focusCarouselInput() {
-    this.carousel.current.focus()
+    const node = this.carousel.current
+    if (node) {
+      node.focus()
+    }
   }
 
   render() {

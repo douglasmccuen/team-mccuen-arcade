@@ -15,7 +15,7 @@ type Props = {
   ref: object
 }
 
-const Carousel = React.forwardRef((props: Props, ref) => {
+const Carousel = React.forwardRef((props: Props, ref: React.Ref<HTMLDivElement>) => {
   const { openGame, paused, games } = props
   const { length } = games
   const onOpen = (idx:number) => {
@@ -35,7 +35,7 @@ const Carousel = React.forwardRef((props: Props, ref) => {
   const max = (games.length>=5) ? 5 : games.length
   const g3 = games.slice(0, max)
 
-  return length>0 && (
+  return (length>0) ? (
     <div className={cn.join(' ')} {...handlers} ref={ref}>
       <div className={styles.Content} style={style}>
         {
@@ -69,7 +69,7 @@ const Carousel = React.forwardRef((props: Props, ref) => {
         ))}
       </ol>
     </div>
-  )
+  ) : <div />
 })
 
 Carousel.displayName = "Carousel"
