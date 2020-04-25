@@ -4,9 +4,10 @@
 import React, { RefObject } from 'react'
 import Carousel from './carousel'
 import Banner from './banner'
+import { RomConfig } from '../config/types'
 
 type Props = {
-  games: []
+  games: [RomConfig]
   openGame: () => void
   closeGame: () => void
   refreshConfig: () => void
@@ -15,8 +16,8 @@ type Props = {
   muteWindow: () => void
   isOSMuted: boolean
   getIsOSMuted: () => void
-  muteOS: () => void
-  setOSVolumeLevel: () => void
+  muteOS: (b:boolean) => void
+  setOSVolumeLevel: (n:number) => void
   getOSVolumeLevel: () => void
   onSleep: () => void
   isOpen: boolean
