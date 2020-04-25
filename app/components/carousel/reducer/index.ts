@@ -1,6 +1,6 @@
-import { CarouselAction, CarouselState } from './types'
+import { CarouselAction, CarouselState } from '../types'
 import { previous, next } from './helpers'
-import { transitionTime } from './constants'
+import { transitionTime } from '../constants'
 
 const carouselReducer = (state: CarouselState, action: CarouselAction): CarouselState => {
   switch (action.type) {
