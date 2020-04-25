@@ -4,8 +4,8 @@
 import React from 'react'
 import useCarousel from './useCarousel'
 import styles from './Carousel.css'
-import Game from './Game'
-import Preview from './Preview'
+import Game from './game'
+import Preview from './preview'
 
 type Props = {
   games: []
