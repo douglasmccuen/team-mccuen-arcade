@@ -1,27 +1,47 @@
 /* eslint no-restricted-globals: off */
 import { useReducer, useEffect } from 'react'
-import { transitionTime, elastic, smooth, initialState, keys } from './constants'
+import { elastic, smooth, smoothSpin, initialState, keys } from './constants'
 import carouselReducer from './reducer'
+
+type returnTypes = [
+  number,
+  object,
+  React.CSSProperties,
+  boolean,
+  boolean,
+  (n: number) => void,
+  (n1: number, n2: number) => void
+]
 
 const useCarousel = (
   length: number,
   interval: number,
   onOpen: (n: number) => void,
-  paused: bool,
-): [number, (n: number) => void, React.CSSProperties] => {
+  paused: boolean,
+): returnTypes => {
 
   const [state, dispatch] = useReducer(carouselReducer, initialState);
 
   useEffect(() => {
-    if (paused) return () => {}
-    const id = setTimeout(() => dispatch({ type: 'next', length }), state.pause * interval);
+    if (paused || state.spinning) return () => {}
+    const timeout = state.pause * interval
+    const id = setTimeout(() => dispatch({ type: 'next', length }), timeout);
     return () => clearTimeout(id);
-  }, [state.offset, state.active, state.pause]);
+  }, [state.offset, state.active, state.pause, state.spinning]);
 
   useEffect(() => {
+    if (paused || state.spinning) return () => {}
+    const { transitionTime } = state
     const id = setTimeout(() => dispatch({ type: 'done' }), transitionTime);
     return () => clearTimeout(id);
-  }, [state.desired]);
+  }, [state.desired, state.spinning]);
+
+  useEffect(() => {
+    if (paused || !state.spinning) return () => {}
+    const { spinCount } = state
+    const id = setTimeout(() => dispatch({ type: 'done' }), spinCount*1000);
+    return () => clearTimeout(id);
+  }, [state.spinning]);
 
   // percentage of screen width for the game in the carousel
   const itemScale = 20
@@ -29,13 +49,22 @@ const useCarousel = (
   // number of offscreen games in the carousel to fill gaps during rotation
   const extraItems = 8
 
-  const style: React.CSSProperties = {
+  let style: React.CSSProperties = {
     transform: 'translateX(0)',
     width: `${itemScale * (length + extraItems)}%`,
     left: `-${(state.active + 1) * itemScale}%`,
   };
 
-  if (state.desired !== state.active) {
+  if (state.spinning) {
+    const { spinCount } = state
+    style = {
+      width: `${itemScale * (length + extraItems)}%`,
+      transition: smoothSpin(1000),
+      animationDuration: `${spinCount}s`,
+      animationIterationCount: spinCount,
+    }
+    // let notstyle = { width: `${itemScale * (length + extraItems)}%` }
+  } else if (state.desired !== state.active) {
     const dist = Math.abs(state.active - state.desired);
     const pref = Math.sign(state.offset || 0);
     const dir = (dist > length / 2 ? 1 : -1) * Math.sign(state.desired - state.active);
@@ -66,8 +95,10 @@ const useCarousel = (
   }
 
   const isMoving = (state.desired !== state.active)
+  const jumpTo = (n:number) => dispatch({ type: 'jump', desired: n })
+  const spinIt = () => dispatch({ type: 'spin', rotations: 3 })
 
-  return [state.active, handlers, style, isMoving];
+  return [state.active, handlers, style, isMoving, state.spinning, jumpTo, spinIt];
 }
 
 export default useCarousel
