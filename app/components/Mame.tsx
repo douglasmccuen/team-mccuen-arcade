@@ -4,11 +4,11 @@
 import React, { RefObject } from 'react'
 import Carousel from './carousel'
 import Banner from './banner'
-import { RomConfig } from '../config/types'
+import { RomConfig } from '../reducers/types'
 
 type Props = {
-  games: [RomConfig]
-  openGame: () => void
+  games: RomConfig[]
+  openGame: (g:string) => void
   closeGame: () => void
   refreshConfig: () => void
   isWindowMuted: boolean

@@ -15,7 +15,7 @@ export const SET_OS_VOLUME = 'SET_OS_VOLUME'
 export const GET_OS_VOLUME = 'GET_OS_VOLUME'
 export const GO_TO_SLEEP = 'GO_TO_SLEEP'
 
-ipcRenderer.on(audioErrorChannel, (event, message) => {
+ipcRenderer.on(audioErrorChannel, (_, message) => {
   console.error(`Failed to manage audio: ${message}`)
 })
 
@@ -111,7 +111,7 @@ export const setOSVolumeLevel = (num: number) => {
 
 export const gotToSleepNow = () => {
   return async (dispatch: Dispatch) => {
-    const level = await ipcRenderer.invoke(SYSTEM_SLEEP, [])
-    dispatch(goToSleep(level))
+    await ipcRenderer.invoke(SYSTEM_SLEEP, [])
+    dispatch(goToSleep())
   }
 }

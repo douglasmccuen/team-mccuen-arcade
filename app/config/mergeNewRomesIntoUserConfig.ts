@@ -1,6 +1,6 @@
 import homeConfig from 'home-config'
 import defaultRomConfig from './roms.config'
-import { RomConfig } from './types'
+import { RomConfig } from '../reducers/types'
 
 const romFile = 'Public/games/.roms'
 

@@ -1,5 +1,4 @@
-import { Action } from 'redux'
-import { GameAction } from './types'
+import { WindowAction } from './types'
 import {
   TOGGLE_MUTE_WINDOW, GET_MUTE_WINDOW, TOGGLE_MUTE_OS, GET_MUTE_OS,
   SET_OS_VOLUME, GET_OS_VOLUME
@@ -11,7 +10,7 @@ const defaultState = {
   volumeLevel: 0
 }
 
-const configReducer = (state = defaultState, action: Action<GameAction>) => {
+const configReducer = (state = defaultState, action: WindowAction) => {
   const { payload, type } = action
   let update
   switch (type) {

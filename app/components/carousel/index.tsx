@@ -6,10 +6,10 @@ import useCarousel from './useCarousel'
 import styles from './Carousel.css'
 import Game from './game'
 import Preview from './preview'
-import { RomConfig } from '../../config/types'
+import { RomConfig } from '../../reducers/types'
 
 type Props = {
-  games: [RomConfig]
+  games: RomConfig[]
   openGame: (game: string) => void
   paused: boolean
   ref: object
