@@ -8,6 +8,10 @@ export const initialState: CarouselState = {
   offset: 0,
   desired: 0,
   active: 0,
+  pause: 1,
+  spinning: false,
+  spinCount: 0,
+  transitionTime
 }
 export const keys = {
   back: ['d', 'ArrowLeft'],

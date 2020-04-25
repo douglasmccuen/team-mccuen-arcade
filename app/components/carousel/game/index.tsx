@@ -10,14 +10,14 @@ type Props = {
   image: string
   description: string
   rating: number
-  isActive: boolean
-  isPreActive: boolean
-  isPrePreActive: boolean
-  isPostActive: boolean
-  isPostPostActive: boolean
-  isMoving: boolean
-  isSpinning: boolean
-  handleClick: () => void
+  isActive?: boolean
+  isPreActive?: boolean
+  isPrePreActive?: boolean
+  isPostActive?: boolean
+  isPostPostActive?: boolean
+  isMoving?: boolean
+  isSpinning?: boolean
+  handleClick?: () => void
 }
 
 export default function Game(props: Props) {

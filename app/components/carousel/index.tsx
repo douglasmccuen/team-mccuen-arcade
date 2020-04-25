@@ -6,10 +6,11 @@ import useCarousel from './useCarousel'
 import styles from './Carousel.css'
 import Game from './game'
 import Preview from './preview'
+import { RomConfig } from '../../config/types'
 
 type Props = {
-  games: []
-  openGame: () => void
+  games: [RomConfig]
+  openGame: (game: string) => void
   paused: boolean
   ref: object
 }
@@ -17,7 +18,7 @@ type Props = {
 const Carousel = React.forwardRef((props: Props, ref) => {
   const { openGame, paused, games } = props
   const { length } = games
-  const onOpen = (idx) => {
+  const onOpen = (idx:number) => {
     const rom = games[idx]
     openGame(rom.game)
   }
@@ -27,55 +28,43 @@ const Carousel = React.forwardRef((props: Props, ref) => {
   const cn = [styles.Carousel]
   if (isSpinning) cn.push(styles.Spinning)
 
+  // the last 3 games in reverse order
+  const g1 = games.slice(games.length-3).reverse()
+
+  // the first 5 games
+  const max = (games.length>=5) ? 5 : games.length
+  const g3 = games.slice(0, max)
+
   return length>0 && (
     <div className={cn.join(' ')} {...handlers} ref={ref}>
       <div className={styles.Content} style={style}>
-        <div className={styles.Item}>
-          <Game {...games[games.length - 3]} />
-        </div>
-        <div className={styles.Item}>
-          <Game {...games[games.length - 2]} />
-        </div>
-        <div className={styles.Item}>
-          <Game {...games[games.length - 1]} />
-        </div>
-        {games.map((game, key) => (
-          <div className={styles.Item} key={key}>
-            <Game
-              {...game}
-              isMoving={isMoving}
-              isSpinning={isSpinning}
-              isPrePreActive={(active - key) === -2}
-              isPreActive={(active - key) === -1}
-              isActive={active === key}
-              isPostActive={(active - key) === 1}
-              isPostPostActive={(active - key) === 2}
-              handleClick={spinIt} />
-          </div>
-        ))}
-        <div className={styles.Item}>
-          <Game {...games[0]} />
-        </div>
-        <div className={styles.Item}>
-          <Game {...games[1]} />
-        </div>
-        <div className={styles.Item}>
-          <Game {...games[2]} />
-        </div>
-        <div className={styles.Item}>
-          <Game {...games[3]} />
-        </div>
-        <div className={styles.Item}>
-          <Game {...games[4]} />
-        </div>
+        {
+          g1.map((g, i)=><div className={styles.Item} key={i}><Game {...g} /></div>)
+        }
+        {
+          games.map((game, key) => (
+            <div className={styles.Item} key={key}>
+              <Game
+                {...game}
+                isMoving={isMoving}
+                isSpinning={isSpinning}
+                isPrePreActive={(active - key) === -2}
+                isPreActive={(active - key) === -1}
+                isActive={active === key}
+                isPostActive={(active - key) === 1}
+                isPostPostActive={(active - key) === 2}
+                handleClick={spinIt} />
+            </div>
+          ))
+        }
+        {
+          g3.map((g, i)=><div className={styles.Item} key={i}><Game {...g} /></div>)
+        }
       </div>
       <ol className={styles.Indicators}>
-        {games.map((_, key) => (
-          <li key={key}>
-            <Preview
-              {...games[key]}
-              isActive={active === key}
-              jumpTo={() => {jumpTo(key)}} />
+        {games.map((g, i) => (
+          <li key={i}>
+            <Preview {...g} isActive={active === i} jumpTo={()=>{jumpTo(i)}} />
           </li>
         ))}
       </ol>
