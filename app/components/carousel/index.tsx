@@ -22,7 +22,7 @@ const Carousel = React.forwardRef((props: Props, ref: React.Ref<HTMLDivElement>)
     const rom = games[idx]
     openGame(rom.game)
   }
-  const [active, handlers, style, isMoving, isSpinning, jumpTo, spinIt] =
+  const [active, handlers, style, isMoving, isSpinning, jumpTo] =
     useCarousel(length, 5000, onOpen, paused)
 
   const cn = [styles.Carousel]
@@ -52,8 +52,7 @@ const Carousel = React.forwardRef((props: Props, ref: React.Ref<HTMLDivElement>)
                 isPreActive={(active - key) === -1}
                 isActive={active === key}
                 isPostActive={(active - key) === 1}
-                isPostPostActive={(active - key) === 2}
-                handleClick={spinIt} />
+                isPostPostActive={(active - key) === 2} />
             </div>
           ))
         }

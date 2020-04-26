@@ -30,6 +30,8 @@ interface CarouselJumpAction {
 interface CarouselSpinAction {
   type: 'spin';
   rotations: number;
+  desired: number;
+  pause?: number;
 }
 
 interface CarouselDoneAction {

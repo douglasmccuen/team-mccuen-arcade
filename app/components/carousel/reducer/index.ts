@@ -28,7 +28,9 @@ const carouselReducer = (state: CarouselState, action: CarouselAction): Carousel
       return {
         ...state,
         spinCount: action.rotations,
-        spinning: true
+        spinning: true,
+        desired: action.desired,
+        pause: action.pause||1,
       };
     case 'done':
       return {

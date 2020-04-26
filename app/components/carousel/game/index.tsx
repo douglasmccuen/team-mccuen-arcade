@@ -17,13 +17,12 @@ type Props = {
   isPostPostActive?: boolean
   isMoving?: boolean
   isSpinning?: boolean
-  handleClick?: () => void
 }
 
 export default function Game(props: Props) {
   const {
     name, image, description, isActive, isPreActive, isPrePreActive,
-    isPostActive, isPostPostActive, isMoving, isSpinning, handleClick
+    isPostActive, isPostPostActive, isMoving, isSpinning
   } = props
 
   const css = [styles.Game]
@@ -42,7 +41,7 @@ export default function Game(props: Props) {
 
   return (
     <div className={css.join(' ')}>
-      <div className={styles.Image} style={style} onClick={handleClick} />
+      <div className={styles.Image} style={style} />
       <div className={styles.Name}>{ name }</div>
       <div className={styles.Desc}>{ description }</div>
     </div>

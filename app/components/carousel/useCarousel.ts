@@ -1,8 +1,10 @@
 /* eslint no-restricted-globals: off */
+/* eslint no-console: off */
 import { useReducer, useEffect } from 'react'
 import { elastic, smooth, smoothSpin, initialState, keys } from './constants'
 import carouselReducer from './reducer'
 import {spinningEffect, nextEffect, doneEffect } from './effects'
+import prespin from './prespin'
 
 type returnTypes = [
   number,
@@ -10,8 +12,7 @@ type returnTypes = [
   React.CSSProperties,
   boolean,
   boolean,
-  (n: number) => void,
-  () => void
+  (n: number) => void
 ]
 
 const useCarousel = (
@@ -45,7 +46,7 @@ const useCarousel = (
     style = {
       width: `${itemScale * (length + extraItems)}%`,
       transition: smoothSpin(1000),
-      animationDuration: `${spinCount}s`,
+      animationDuration: `${1}s`,
       animationIterationCount: spinCount,
     }
   } else if (state.desired !== state.active) {
@@ -72,6 +73,18 @@ const useCarousel = (
         dispatch({ type: 'prev', length, pause: 5 })
       } else if (keys.select.includes(key)) {
         onOpen(state.active)
+      } else if (keys.spin.includes(key)) {
+        prespin(length)
+          .then(idx => {
+            // console.log(`random index: ${idx}`)
+            const delay = 11*1000 // 11 seconds
+            dispatch({ type: 'spin', rotations: 8, desired: idx, pause: 5})
+            setTimeout(() => { onOpen(idx) }, delay)
+            return true
+          })
+          .catch(console.error)
+
+
       }
     },
     onMouseDown: () => false,
@@ -80,9 +93,8 @@ const useCarousel = (
 
   const isMoving = (state.desired !== state.active)
   const jumpTo = (n:number) => dispatch({ type: 'jump', desired: n })
-  const spinIt = () => dispatch({ type: 'spin', rotations: 3 })
 
-  return [state.active, handlers, style, isMoving, state.spinning, jumpTo, spinIt];
+  return [state.active, handlers, style, isMoving, state.spinning, jumpTo];
 }
 
 export default useCarousel
