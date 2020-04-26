@@ -20,6 +20,11 @@ export default {
             cacheDirectory: true
           }
         }
+      },
+      {
+        test: /\.wav$|\.mp3$/,
+        exclude: /node_modules/,
+        loader: 'file-loader'
       }
     ]
   },
