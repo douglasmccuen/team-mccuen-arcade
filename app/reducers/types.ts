@@ -18,6 +18,7 @@ export type RomConfig = {
 
 export type configStateType = {
   roms: [RomConfig]
+  romsByGame: {[key:string]: RomConfig}
   romConfigPath: string
   mamePath: string
   mameExec: string

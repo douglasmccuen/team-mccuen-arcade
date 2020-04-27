@@ -1,6 +1,6 @@
 // ipc channels
 export const errorChannel = 'window-open-error'
-export const processExitChannel = (pid) => `window-${pid}-exit`
+export const processExitChannel = (pid:number) => `window-${pid}-exit`
 export const audioErrorChannel = 'audio-error'
 export const sleepErrorChannel = 'sleep-error'
 
