@@ -1,5 +1,4 @@
 /* eslint no-console: off */
-
 import homeConfig from 'home-config'
 import merge from 'lodash/merge'
 import defaultAppConfig from './app.config'
@@ -14,30 +13,13 @@ const loadUserConfig = () => {
   defaultAppConfig.mamePath = `${homeConfig.homeDir}/${defaultAppConfig.mamePath}`
 
   const config = homeConfig.load(configFile, defaultAppConfig)
-  const romsConfg = homeConfig.load(romFile, defaultRomConfig)
+  const romsConfig = homeConfig.load(romFile, defaultRomConfig)
 
-  // fix the roms config as needed
-  const { roms=[] } = romsConfg.getAll()
-  try {
-    romsConfg.roms = roms.map(JSON.parse)
-  } catch(e) {
-    // error catch when file doesn't exist, and it is first created
-    // console.error(e)
-  }
+  // get the rom config from the user's home dir, or just use the default...
+  // using the default...
+  romsConfig.roms = defaultRomConfig.roms
 
-  // force new games into the config
-  const newGames = defaultRomConfig.roms.filter(x => {
-    let isNew = true
-    romsConfg.roms.forEach(({ game }) => {
-      if (x.game === game) {
-        isNew = false
-      }
-    })
-    return isNew
-  })
-  if (newGames.length > 0) romsConfg.roms = roms.concat(newGames)
-
-  return Promise.resolve([config, romsConfg])
+  return Promise.resolve([config, romsConfig])
 }
 
 const writeUserConfig = (cfgs) => {

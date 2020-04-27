@@ -34,3 +34,17 @@
 .Active {
   background-color: red;
 }
+
+/* The animation code */
+.Spinning {
+  outline: none;
+}
+@keyframes spin {
+  0% {
+    transform: translateX(-80%);
+  }
+}
+.Spinning .Content {
+  animation-name: spin;
+  animation-timing-function: linear;
+}

@@ -149,7 +149,7 @@ export default merge.smart(baseConfig, {
           }
         }
       },
-      // EOT Font
+      // EOT Font or sounds
       {
         test: /\.eot(\?v=\d+\.\d+\.\d+)?$/,
         use: 'file-loader'

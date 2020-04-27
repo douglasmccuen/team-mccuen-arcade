@@ -7,7 +7,7 @@ import React from 'react'
 type Props = {
   icon: string
   handleClick: () => void
-  disabled: boolean
+  disabled?: boolean
 }
 
 const Button = ({ handleClick, icon, disabled }: Props) => (

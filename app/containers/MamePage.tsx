@@ -15,7 +15,7 @@ function mapStateToProps(state: appStateType) {
   const { isOSMuted, isWindowMuted, volumeLevel } = state.win
 
   // sort the games by name
-  const games = [].concat(roms)
+  const games = [...roms]
   games.sort((a, b) => {
     return a.name.localeCompare(b.name)
   })

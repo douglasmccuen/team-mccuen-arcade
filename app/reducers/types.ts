@@ -1,4 +1,4 @@
-import { Dispatch as ReduxDispatch, Store as ReduxStore, Action } from 'redux'
+import { Dispatch as ReduxDispatch, Store as ReduxStore } from 'redux'
 
 export type romStateType = {
   isOpen: boolean
@@ -6,11 +6,21 @@ export type romStateType = {
   mameProcess: object
 }
 
-export type configStateType = {
-  isOpen: boolean
+export type RomConfig = {
   game: string
-  mameProcess: object
-  config: object
+  name: string
+  emulator: string
+  image: string
+  preview: string
+  description: string
+  rating: number
+}
+
+export type configStateType = {
+  roms: [RomConfig]
+  romConfigPath: string
+  mamePath: string
+  mameExec: string
 }
 
 export type windowStateType = {
@@ -21,18 +31,32 @@ export type windowStateType = {
 
 export type appStateType = {
   rom: romStateType
-  config: object
-  window: windowStateType
+  config: configStateType
+  win: windowStateType
 }
 
-export type GameAction = {
+export interface GameAction {
   type: string
-  payload: object
+  payload?: { mameProcess: number, game: string }
 }
 
+export interface ConfigAction {
+  type: string
+  payload: configStateType
+}
+
+export interface WindowAction {
+  type: string
+  payload: { isMute?: boolean, level?: number }
+}
+
+export type AppAction =
+  | GameAction
+  | ConfigAction
+  | WindowAction;
 
 export type GetState = () => appStateType
 
-export type Dispatch = ReduxDispatch<Action<GameAction>>
+export type Dispatch = ReduxDispatch<AppAction>
 
-export type Store = ReduxStore<appStateType, Action<GameAction>>
+export type Store = ReduxStore<appStateType, AppAction>

@@ -4,10 +4,11 @@
 import React, { RefObject } from 'react'
 import Carousel from './carousel'
 import Banner from './banner'
+import { RomConfig } from '../reducers/types'
 
 type Props = {
-  games: []
-  openGame: () => void
+  games: RomConfig[]
+  openGame: (g:string) => void
   closeGame: () => void
   refreshConfig: () => void
   isWindowMuted: boolean
@@ -15,8 +16,8 @@ type Props = {
   muteWindow: () => void
   isOSMuted: boolean
   getIsOSMuted: () => void
-  muteOS: () => void
-  setOSVolumeLevel: () => void
+  muteOS: (b:boolean) => void
+  setOSVolumeLevel: (n:number) => void
   getOSVolumeLevel: () => void
   onSleep: () => void
   isOpen: boolean
@@ -24,12 +25,12 @@ type Props = {
 };
 
 interface MameType {
-  carousel: RefObject<unknown>
+  carousel: RefObject<HTMLDivElement>
 }
 
 class Mame extends React.Component<Props> implements MameType {
 
-  carousel = React.createRef()
+  carousel = React.createRef<HTMLDivElement>()
 
   constructor(props: Props) {
     super(props)
@@ -52,7 +53,10 @@ class Mame extends React.Component<Props> implements MameType {
   }
 
   focusCarouselInput() {
-    this.carousel.current.focus()
+    const node = this.carousel.current
+    if (node) {
+      node.focus()
+    }
   }
 
   render() {

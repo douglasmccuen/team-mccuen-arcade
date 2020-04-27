@@ -1,11 +1,12 @@
 /* eslint no-console: 0 */
 import { ipcRenderer } from 'electron'
+import { Dispatch, GetState } from '../reducers/types'
 import { errorChannel, processExitChannel, OPEN_WINDOW } from '../window/constants'
 
 export const OPEN_ROM = 'OPEN_ROM';
 export const CLOSE_ROM = 'CLOSE_ROM';
 
-const openRom = (mameProcess, game) => {
+const openRom = (mameProcess: number, game: string) => {
   return {
     type: OPEN_ROM,
     payload: { mameProcess, game }
@@ -18,14 +19,8 @@ const closeRom = () => {
   }
 }
 
-export function closeGame(kill: bool) {
-  return (dispatch: Dispatch, getState: GetState) => {
-    const { mameProcess } = getState().rom
-    if (mameProcess && kill) {
-      // TODO if this app closes/exits it should close this mameProcess
-      mameProcess.kill(2)
-      console.log('closed the mame process')
-    }
+export function closeGame() {
+  return (dispatch: Dispatch) => {
     dispatch(closeRom())
   }
 }
@@ -42,23 +37,23 @@ export function openGame(game: string) {
     const { pid } = await ipcRenderer.invoke(OPEN_WINDOW, {game, mamePath, mameExec})
     if (pid) {
 
-      ipcRenderer.on(processExitChannel(pid), (event, code) => {
-        dispatch(closeGame(false))
+      ipcRenderer.on(processExitChannel(pid), (_, code) => {
+        dispatch(closeRom())
         console.log(`Mame exited with code: ${code}`);
       })
 
-      ipcRenderer.on(errorChannel, (event, message) => {
+      ipcRenderer.on(errorChannel, (_, message) => {
         console.error(`Failed to open mame window: ${message}`)
-        dispatch(closeRom(false))
+        dispatch(closeRom())
       })
 
       setTimeout(() => {
-        dispatch(openRom(process, game))
+        dispatch(openRom(pid, game))
       }, 2000)
 
     } else {
       console.error("no child process created")
-      dispatch(closeRom(false))
+      dispatch(closeRom())
     }
   }
 }
