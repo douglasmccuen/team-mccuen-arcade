@@ -9,7 +9,8 @@ export type romStateType = {
 export type RomConfig = {
   game: string
   name: string
-  emulator: string
+  emulator: string,
+  core?: string,
   image: string
   preview: string
   description: string
@@ -22,6 +23,9 @@ export type configStateType = {
   romConfigPath: string
   mamePath: string
   mameExec: string
+  retroArchPath: string
+  retroArchExec: string
+
 }
 
 export type windowStateType = {

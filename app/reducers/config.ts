@@ -6,6 +6,8 @@ const defaultState = {
   romConfigPath: '',
   mamePath: '',
   mameExec: '',
+  retroArchPath: '',
+  retroArchExec: '',
   roms: [],
   romsByGame: {}
 }
