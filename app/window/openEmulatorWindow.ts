@@ -1,7 +1,7 @@
 import { ChildProcess } from 'child_process'
 import { BrowserWindow } from 'electron'
-import openMame from './openMame'
-import openRetroArch from './openRetroArch'
+import openMame, { openMameProcess } from './openMame'
+import openRetroArch, { openRetroArchProcess } from './openRetroArch'
 import { processExitChannel } from './constants'
 import callback from './processCallback'
 import { EmulatorProps } from './types'
@@ -19,5 +19,27 @@ const openWindow = (browserWindow: BrowserWindow) =>
     })
     return Promise.resolve(process)
   }
+
+export const openMameForConfig = (browserWindow: BrowserWindow) => {
+  browserWindow.setFullScreen(false)
+  const process = openMameProcess(callback(browserWindow.webContents))
+  process.on('exit', (code) => {
+    browserWindow.focus()
+    browserWindow.webContents.send(processExitChannel(process.pid), code)
+    browserWindow.setFullScreen(true)
+  })
+  return Promise.resolve(process)
+}
+
+export const openRetroArchForConfig = (browserWindow: BrowserWindow) => {
+  browserWindow.setFullScreen(false)
+  const process = openRetroArchProcess(callback(browserWindow.webContents))
+  process.on('exit', (code) => {
+    browserWindow.focus()
+    browserWindow.webContents.send(processExitChannel(process.pid), code)
+    browserWindow.setFullScreen(true)
+  })
+  return Promise.resolve(process)
+}
 
 export default openWindow

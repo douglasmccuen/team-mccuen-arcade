@@ -8,4 +8,12 @@ const openMame = ({game, config}:EmulatorProps, cb:Callback):ChildProcess => {
   return exec(cmd, options, cb)
 }
 
+export const openMameProcess = (cb:Callback):ChildProcess => {
+  const mamePath = '~/mame'
+  const mameExec = 'mame64'
+  const cmd = `cd ${mamePath}; ./${mameExec} `
+  const options = {}
+  return exec(cmd, options, cb)
+}
+
 export default openMame

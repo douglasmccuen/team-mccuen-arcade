@@ -2,7 +2,7 @@ import {
   BrowserWindow, ipcMain, IpcMainInvokeEvent, globalShortcut
 } from 'electron'
 import sleep from 'suspend-pc'
-import openEmulatorWindow from './openEmulatorWindow'
+import openEmulatorWindow, { openMameForConfig, openRetroArchForConfig } from './openEmulatorWindow'
 import { OPEN_WINDOW, SYSTEM_SLEEP, sleepErrorChannel } from './constants'
 import { EmulatorProps } from './types'
 
@@ -42,6 +42,14 @@ export default class WindowManager {
 
   goToSleep() {
     handleSleep(this.mainWindow)
+  }
+
+  openMame() {
+    openMameForConfig(this.mainWindow)
+  }
+
+  openRetroArch() {
+    openRetroArchForConfig(this.mainWindow)
   }
 
 }

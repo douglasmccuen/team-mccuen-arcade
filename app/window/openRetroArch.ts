@@ -11,4 +11,12 @@ const openRetroArch = ({game, config}:EmulatorProps, cb:Callback):ChildProcess =
   return exec(cmd, options, cb)
 }
 
+export const openRetroArchProcess = (cb:Callback):ChildProcess => {
+  const raPath = '~/Public/games/RetroArch.app/Contents'
+  const raExec = 'MacOS/RetroArch'
+  const cmd = `cd ${raPath}; ./${raExec} -f`
+  const options = {}
+  return exec(cmd, options, cb)
+}
+
 export default openRetroArch

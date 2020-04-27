@@ -90,15 +90,15 @@ const createWindow = async () => {
     mainWindow = null;
   });
 
-  const menuBuilder = new MenuBuilder(mainWindow);
-  menuBuilder.buildMenu();
-
   // handle the creation of windows for emulators
   const windowManager = new WindowManager(mainWindow)
   windowManager.activate()
 
   const audioManager = new AudioManager(mainWindow)
   audioManager.activate()
+
+  const menuBuilder = new MenuBuilder(mainWindow, windowManager);
+  menuBuilder.buildMenu();
 
   // Remove this if your app does not use auto updates
   // eslint-disable-next-line
