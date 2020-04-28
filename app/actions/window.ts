@@ -18,6 +18,9 @@ export const GO_TO_SLEEP = 'GO_TO_SLEEP'
 ipcRenderer.on(audioErrorChannel, (_, message) => {
   console.error(`Failed to manage audio: ${message}`)
 })
+ipcRenderer.on("message", (_, message) => {
+  console.error(`general message: ${message}`)
+})
 
 const toggleMuteWindow = (isMute: boolean) => {
   return {

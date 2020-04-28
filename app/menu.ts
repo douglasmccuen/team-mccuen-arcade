@@ -115,6 +115,7 @@ export default class MenuBuilder {
             this.mainWindow.webContents.reload();
           }
         },
+        { type: 'separator' },
         {
           label: 'Project List',
           accelerator: 'Ctrl+Command+T',
@@ -133,6 +134,7 @@ export default class MenuBuilder {
             )
           }
         },
+        { type: 'separator' },
         {
           label: 'Toggle Full Screen',
           accelerator: 'Ctrl+Command+F',
@@ -147,6 +149,7 @@ export default class MenuBuilder {
             this.mainWindow.webContents.toggleDevTools();
           }
         },
+        { type: 'separator' },
         {
           label: 'Open Mame',
           accelerator: 'Ctrl+Command+M',
@@ -173,6 +176,7 @@ export default class MenuBuilder {
             this.mainWindow.setFullScreen(!this.mainWindow.isFullScreen());
           }
         },
+        { type: 'separator' },
         {
           label: 'Project List',
           accelerator: 'Ctrl+Command+T',
@@ -191,6 +195,7 @@ export default class MenuBuilder {
             )
           }
         },
+        { type: 'separator' },
         {
           label: 'Open Mame',
           accelerator: 'Ctrl+Command+M',
