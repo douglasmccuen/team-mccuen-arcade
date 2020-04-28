@@ -2,8 +2,9 @@ import {
   BrowserWindow, ipcMain, IpcMainInvokeEvent, globalShortcut
 } from 'electron'
 import sleep from 'suspend-pc'
-import openMameWindow from './openMameWindow'
+import openEmulatorWindow, { openMameForConfig, openRetroArchForConfig } from './openEmulatorWindow'
 import { OPEN_WINDOW, SYSTEM_SLEEP, sleepErrorChannel } from './constants'
+import { EmulatorProps } from './types'
 
 const handleSleep = (win: BrowserWindow) => async () => {
   sleep((err:Error) => {
@@ -23,8 +24,8 @@ export default class WindowManager {
 
   activate() {
     this.mainWindow.setFullScreen(true)
-    ipcMain.handle(OPEN_WINDOW, async (_: IpcMainInvokeEvent, props: object) => {
-      const result = await openMameWindow(this.mainWindow)(props)
+    ipcMain.handle(OPEN_WINDOW, async (_: IpcMainInvokeEvent, props: EmulatorProps) => {
+      const result = await openEmulatorWindow(this.mainWindow)(props)
 
       // TODO if this app closes/exits it should close this mameProcess
       // result.kill(2)
@@ -41,6 +42,14 @@ export default class WindowManager {
 
   goToSleep() {
     handleSleep(this.mainWindow)
+  }
+
+  openMame() {
+    openMameForConfig(this.mainWindow)
+  }
+
+  openRetroArch() {
+    openRetroArchForConfig(this.mainWindow)
   }
 
 }

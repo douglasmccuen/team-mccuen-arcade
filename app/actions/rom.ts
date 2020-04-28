@@ -2,6 +2,7 @@
 import { ipcRenderer } from 'electron'
 import { Dispatch, GetState } from '../reducers/types'
 import { errorChannel, processExitChannel, OPEN_WINDOW } from '../window/constants'
+import { EmulatorProps } from '../window/types'
 
 export const OPEN_ROM = 'OPEN_ROM';
 export const CLOSE_ROM = 'CLOSE_ROM';
@@ -28,13 +29,18 @@ export function closeGame() {
 export function openGame(game: string) {
   return async (dispatch: Dispatch, getState: GetState) => {
 
-    const { mameProcess, isOpen } = getState().rom
-    const { mamePath, mameExec } = getState().config
+    const { config, rom } = getState()
+
+    const props: EmulatorProps = {
+      game: config.romsByGame[game],
+      config
+    }
 
     // abort if it is already open
+    const { mameProcess, isOpen } = rom
     if (isOpen || mameProcess) return
 
-    const { pid } = await ipcRenderer.invoke(OPEN_WINDOW, {game, mamePath, mameExec})
+    const { pid } = await ipcRenderer.invoke(OPEN_WINDOW, props)
     if (pid) {
 
       ipcRenderer.on(processExitChannel(pid), (_, code) => {
