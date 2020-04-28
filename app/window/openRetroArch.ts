@@ -1,5 +1,6 @@
 import { exec, ChildProcess } from 'child_process'
 import { EmulatorProps, Callback } from './types'
+import getConfig from '../config'
 
 const openRetroArch = ({game, config}:EmulatorProps, cb:Callback):ChildProcess => {
   const {romConfigPath, retroArchPath, retroArchExec} = config
@@ -11,12 +12,13 @@ const openRetroArch = ({game, config}:EmulatorProps, cb:Callback):ChildProcess =
   return exec(cmd, options, cb)
 }
 
-export const openRetroArchProcess = (cb:Callback):ChildProcess => {
-  const raPath = '~/Public/games/RetroArch.app/Contents'
-  const raExec = 'MacOS/RetroArch'
-  const cmd = `cd ${raPath}; ./${raExec} -f`
-  const options = {}
-  return exec(cmd, options, cb)
+export const openRetroArchProcess = async (cb:Callback):Promise<ChildProcess> => {
+  const process = await getConfig().then(({retroArchPath, retroArchExec}) => {
+    const cmd = `cd ${retroArchPath}; ./${retroArchExec} -f`
+    const options = {}
+    return exec(cmd, options, cb)
+  })
+  return process
 }
 
 export default openRetroArch

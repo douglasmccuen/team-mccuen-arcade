@@ -20,9 +20,9 @@ const openWindow = (browserWindow: BrowserWindow) =>
     return Promise.resolve(process)
   }
 
-export const openMameForConfig = (browserWindow: BrowserWindow) => {
+export const openMameForConfig = async (browserWindow: BrowserWindow) => {
   browserWindow.setFullScreen(false)
-  const process = openMameProcess(callback(browserWindow.webContents))
+  const process = await openMameProcess(callback(browserWindow.webContents))
   process.on('exit', (code) => {
     browserWindow.focus()
     browserWindow.webContents.send(processExitChannel(process.pid), code)
@@ -31,9 +31,9 @@ export const openMameForConfig = (browserWindow: BrowserWindow) => {
   return Promise.resolve(process)
 }
 
-export const openRetroArchForConfig = (browserWindow: BrowserWindow) => {
+export const openRetroArchForConfig = async (browserWindow: BrowserWindow) => {
   browserWindow.setFullScreen(false)
-  const process = openRetroArchProcess(callback(browserWindow.webContents))
+  const process = await openRetroArchProcess(callback(browserWindow.webContents))
   process.on('exit', (code) => {
     browserWindow.focus()
     browserWindow.webContents.send(processExitChannel(process.pid), code)
