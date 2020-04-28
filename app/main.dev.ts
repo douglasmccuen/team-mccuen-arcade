@@ -1,4 +1,4 @@
-/* eslint global-require: off, no-console: off */
+/* eslint global-require: off, no-console: off, prefer-template: off */
 
 /**
  * This module executes inside of electron's main process. You can start
@@ -18,7 +18,8 @@ import { WindowManager, AudioManager } from './window'
 export default class AppUpdater {
   constructor() {
     log.transports.file.level = 'info';
-    autoUpdater.logger = log;
+    autoUpdater.logger = log
+    log.info('App starting...');
     autoUpdater.checkForUpdatesAndNotify();
   }
 }
@@ -104,6 +105,34 @@ const createWindow = async () => {
   // eslint-disable-next-line
   new AppUpdater();
 };
+
+const sendStatusToWindow = (text:string) =>{
+  log.info(text);
+  if (mainWindow) {
+    mainWindow.webContents.send('message', text);
+  }
+}
+autoUpdater.on('checking-for-update', () => {
+  sendStatusToWindow('Checking for update...');
+})
+autoUpdater.on('update-available', () => {
+  sendStatusToWindow('Update available.');
+})
+autoUpdater.on('update-not-available', () => {
+  sendStatusToWindow('Update not available.');
+})
+autoUpdater.on('error', (err) => {
+  sendStatusToWindow('Error in auto-updater. ' + err);
+})
+autoUpdater.on('download-progress', (progressObj) => {
+  let logMessage = "Download speed: " + progressObj.bytesPerSecond;
+  logMessage = logMessage + ' - Downloaded ' + progressObj.percent + '%';
+  logMessage = logMessage + ' (' + progressObj.transferred + "/" + progressObj.total + ')';
+  sendStatusToWindow(logMessage);
+})
+autoUpdater.on('update-downloaded', () => {
+  sendStatusToWindow('Update downloaded');
+});
 
 /**
  * Add event listeners...
