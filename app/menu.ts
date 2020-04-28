@@ -6,6 +6,7 @@ import {
   BrowserWindow,
   MenuItemConstructorOptions
 } from 'electron';
+import { WindowManager } from './window'
 
 interface DarwinMenuItemConstructorOptions extends MenuItemConstructorOptions {
   selector?: string;
@@ -15,8 +16,11 @@ interface DarwinMenuItemConstructorOptions extends MenuItemConstructorOptions {
 export default class MenuBuilder {
   mainWindow: BrowserWindow;
 
-  constructor(mainWindow: BrowserWindow) {
+  windowManager: WindowManager;
+
+  constructor(mainWindow: BrowserWindow, windowManager: WindowManager) {
     this.mainWindow = mainWindow;
+    this.windowManager = windowManager;
   }
 
   buildMenu() {
@@ -112,11 +116,20 @@ export default class MenuBuilder {
           }
         },
         {
+          label: 'Project List',
+          accelerator: 'Ctrl+Command+T',
+          click: () => {
+            shell.openExternal(
+              'https://github.com/douglasmccuen/team-mccuen-arcade/projects/1'
+            )
+          }
+        },
+        {
           label: 'Issues List',
           accelerator: 'Command+T',
           click: () => {
             shell.openExternal(
-              'https://bitbucket.org/dmccuen/electron-arcade/issues'
+              'https://github.com/douglasmccuen/team-mccuen-arcade/issues'
             )
           }
         },
@@ -133,6 +146,20 @@ export default class MenuBuilder {
           click: () => {
             this.mainWindow.webContents.toggleDevTools();
           }
+        },
+        {
+          label: 'Open Mame',
+          accelerator: 'Ctrl+Command+M',
+          click: () => {
+            this.windowManager.openMame()
+          }
+        },
+        {
+          label: 'Open RetroArch',
+          accelerator: 'Ctrl+Command+R',
+          click: () => {
+            this.windowManager.openRetroArch()
+          }
         }
       ]
     };
@@ -147,12 +174,35 @@ export default class MenuBuilder {
           }
         },
         {
+          label: 'Project List',
+          accelerator: 'Ctrl+Command+T',
+          click: () => {
+            shell.openExternal(
+              'https://github.com/douglasmccuen/team-mccuen-arcade/projects/1'
+            )
+          }
+        },
+        {
           label: 'Issues List',
           accelerator: 'Command+T',
           click: () => {
             shell.openExternal(
-              'https://bitbucket.org/dmccuen/electron-arcade/issues'
+              'https://github.com/douglasmccuen/team-mccuen-arcade/issues'
             )
+          }
+        },
+        {
+          label: 'Open Mame',
+          accelerator: 'Ctrl+Command+M',
+          click: () => {
+            this.windowManager.openMame()
+          }
+        },
+        {
+          label: 'Open RetroArch',
+          accelerator: 'Ctrl+Command+R',
+          click: () => {
+            this.windowManager.openRetroArch()
           }
         }
       ]

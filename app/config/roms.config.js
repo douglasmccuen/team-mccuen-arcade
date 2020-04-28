@@ -1,6 +1,16 @@
 const roms = {
   roms: [
     {
+      game: 'doom.smc',
+      name: 'Doom',
+      emulator: 'retro',
+      core: 'bsnes_mercury_performance_libretro.dylib',
+      preview: 'https://team-mccuen.s3-us-west-2.amazonaws.com/images/better/doom.gif',
+      image: 'https://team-mccuen.s3-us-west-2.amazonaws.com/images/better/doom.jpg',
+      rating: 5,
+      description: 'The original first-person zombie shooter...'
+    },
+    {
       game: 'alpinerd',
       name: 'Alpine Racer',
       emulator: 'mame',
