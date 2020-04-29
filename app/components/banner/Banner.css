@@ -3,21 +3,25 @@
   display: flex;
   flex-direction: row;
 }
-.Banner div {
-  flex: 1;
-  display: flex;
-  flex-wrap: nowrap;
-  margin: 0 1rem;
+.Banner .Controls {
+  flex: 3;
+  display: block;
+  margin: 3rem 1rem 0 1rem;
 }
-.Banner div button {
-  width: 3rem;
+.Banner .Controls button {
   height: 3rem;
-  border-radius: 50%;
-  margin: auto;
+  width: 4rem;
+  display: inline-block;
+  border-radius: 0.5rem;
+  margin: auto 0.5rem;
   background: none;
   color: white;
-  border: none;
+  border: 3px solid pink;
   cursor: pointer;
+  outline: none;
+}
+.Banner .VolumeControls button {
+  border-color: hotpink;
 }
 .Banner h1 {
   flex: 10;
@@ -25,4 +29,13 @@
   line-height: 3vh;
   text-align: center;
   font-family: 'Bungee Outline', cursive;
+}
+.VolumeControls {
+  text-align: right;
+}
+.VolumeLevel {
+  color: hotpink;
+  font-size: 2.1em;
+  line-height: 1;
+  display: inline-block;
 }
