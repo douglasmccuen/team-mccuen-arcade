@@ -1,16 +1,6 @@
 const roms = {
   roms: [
     {
-      game: 'doom.smc',
-      name: 'Doom',
-      emulator: 'retro',
-      core: 'bsnes_mercury_performance_libretro.dylib',
-      preview: 'https://team-mccuen.s3-us-west-2.amazonaws.com/images/better/doom.gif',
-      image: 'https://team-mccuen.s3-us-west-2.amazonaws.com/images/better/doom.jpg',
-      rating: 5,
-      description: 'The original first-person zombie shooter...'
-    },
-    {
       game: 'alpinerd',
       name: 'Alpine Racer',
       emulator: 'mame',
@@ -83,6 +73,16 @@ const roms = {
       description: 'Dad\'s favorite game of all time... Not sure he\'s seen anything beyond level 3.'
     },
     {
+      game: 'doom.smc',
+      name: 'Doom',
+      emulator: 'retro',
+      core: 'bsnes_mercury_performance_libretro.dylib',
+      preview: 'https://team-mccuen.s3-us-west-2.amazonaws.com/images/better/doom.gif',
+      image: 'https://team-mccuen.s3-us-west-2.amazonaws.com/images/better/doom.jpg',
+      rating: 5,
+      description: 'The original first-person zombie shooter...'
+    },
+    {
       game: 'excitebk',
       name: 'Excite Bike',
       emulator: 'mame',
@@ -116,6 +116,26 @@ const roms = {
       preview: 'https://team-mccuen.s3-us-west-2.amazonaws.com/images/better/galaxian.png',
       image: 'https://team-mccuen.s3-us-west-2.amazonaws.com/images/games/galaxian.png',
       rating: 4,
+      description: ''
+    },
+    {
+      game: 'gauntlet.zip',
+      name: 'Gauntlet',
+      emulator: 'retro',
+      core: 'mame_libretro.dylib',
+      image: 'https://team-mccuen.s3-us-west-2.amazonaws.com/images/v1/gauntletpreview.jpg',
+      preview: 'https://team-mccuen.s3-us-west-2.amazonaws.com/images/v1/gauntlet.jpg',
+      rating: 5,
+      description: ''
+    },
+    {
+      game: 'gt2k.zip',
+      name: 'Golden Tee 2K',
+      emulator: 'retro',
+      core: 'mame_libretro.dylib',
+      preview: 'https://team-mccuen.s3-us-west-2.amazonaws.com/images/v1/goldentee2kpreview.png',
+      image: 'https://team-mccuen.s3-us-west-2.amazonaws.com/images/v1/goldentee2k.png',
+      rating: 5,
       description: ''
     },
     {
@@ -200,6 +220,16 @@ const roms = {
       description: ''
     },
     {
+      game: 'princeofpersia.zip',
+      name: 'Prince Of Persia',
+      emulator: 'retro',
+      core: 'snes9x_libretro.dylib',
+      preview: 'https://team-mccuen.s3-us-west-2.amazonaws.com/images/v1/princeofpersia.jpg',
+      image: 'https://team-mccuen.s3-us-west-2.amazonaws.com/images/v1/princeofpersia.png',
+      rating: 5,
+      description: ''
+    },
+    {
       game: 'rampage',
       name: 'Rampage',
       emulator: 'mame',
@@ -263,6 +293,46 @@ const roms = {
       description: ''
     },
     {
+      game: 'supermariobros.nes',
+      name: 'Super Mario Bros',
+      emulator: 'retro',
+      core: 'mesen_libretro.dylib',
+      preview: 'https://team-mccuen.s3-us-west-2.amazonaws.com/images/v1/supermariobrospreview.jpg',
+      image: 'https://team-mccuen.s3-us-west-2.amazonaws.com/images/v1/supermariobros.jpg',
+      rating: 5,
+      description: ''
+    },
+    {
+      game: 'supermariokart.smc',
+      name: 'Super Mario Kart',
+      emulator: 'retro',
+      core: 'snes9x_libretro.dylib',
+      preview: 'https://team-mccuen.s3-us-west-2.amazonaws.com/images/v1/supermariokartpreview.jpg',
+      image: 'https://team-mccuen.s3-us-west-2.amazonaws.com/images/v1/supermariokart.jpg',
+      rating: 5,
+      description: ''
+    },
+    {
+      game: 'supermarioworld.zip',
+      name: 'Super Mario World',
+      emulator: 'retro',
+      core: 'bsnes_mercury_performance_libretro.dylib',
+      preview: 'https://team-mccuen.s3-us-west-2.amazonaws.com/images/v1/supermarioworlpreview.png',
+      image: 'https://team-mccuen.s3-us-west-2.amazonaws.com/images/v1/supermarioworld.png',
+      rating: 5,
+      description: ''
+    },
+    {
+      game: 'superpunchout.smc',
+      name: 'Super Punch Out!!',
+      emulator: 'retro',
+      core: 'bsnes_mercury_performance_libretro.dylib',
+      preview: 'https://team-mccuen.s3-us-west-2.amazonaws.com/images/v1/superpunchout.gif',
+      image: 'https://team-mccuen.s3-us-west-2.amazonaws.com/images/v1/SuperPunchOut.jpg',
+      rating: 5,
+      description: ''
+    },
+    {
       game: 'tmnt',
       name: 'Teenage Mutant Ninja Turtles',
       emulator: 'mame',
@@ -295,6 +365,16 @@ const roms = {
       emulator: 'mame',
       preview: 'https://team-mccuen.s3-us-west-2.amazonaws.com/images/better/trckfld.gif',
       image: 'https://team-mccuen.s3-us-west-2.amazonaws.com/images/trackfld.png',
+      rating: 5,
+      description: ''
+    },
+    {
+      game: 'zombies.smc',
+      name: 'Ultimate Zombies Ate My Neighbors',
+      emulator: 'retro',
+      core: 'snes9x_libretro.dylib',
+      preview: 'https://team-mccuen.s3-us-west-2.amazonaws.com/images/v1/Zombiepreview.jpg',
+      image: 'https://team-mccuen.s3-us-west-2.amazonaws.com/images/v1/ZombieAteMy02.jpg',
       rating: 5,
       description: ''
     },

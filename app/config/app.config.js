@@ -1,6 +1,6 @@
 const cfg = {
   romConfigPath: 'Public/games',
-  retroArchPath: 'Public/games/RetroArch.app/Contents',
+  retroArchPath: 'retroArch',
   retroArchExec: 'MacOS/RetroArch',
   mamePath: 'mame',
   mameExec: 'mame64',
