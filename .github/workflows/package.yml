@@ -27,5 +27,5 @@ jobs:
       run: yarn
 
     # Runs a set of commands using the runners shell
-    - name: Package Installers
+    - name: Package and Upload Windows Installer
       run: yarn package-ci
