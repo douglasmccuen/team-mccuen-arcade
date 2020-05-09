@@ -170,13 +170,19 @@ export default class MenuBuilder {
       label: 'View',
       submenu: [
         {
+          label: 'Toggle Developer Tools',
+          accelerator: 'Alt+Command+I',
+          click: () => {
+            this.mainWindow.webContents.toggleDevTools();
+          }
+        },
+        {
           label: 'Toggle Full Screen',
           accelerator: 'Ctrl+Command+F',
           click: () => {
             this.mainWindow.setFullScreen(!this.mainWindow.isFullScreen());
           }
         },
-        { type: 'separator' },
         {
           label: 'Project List',
           accelerator: 'Ctrl+Command+T',
@@ -195,7 +201,6 @@ export default class MenuBuilder {
             )
           }
         },
-        { type: 'separator' },
         {
           label: 'Open Mame',
           accelerator: 'Ctrl+Command+M',
