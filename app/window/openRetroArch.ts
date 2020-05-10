@@ -6,7 +6,7 @@ const openRetroArch = ({game, config}:EmulatorProps, cb:Callback):ChildProcess =
   const {romConfigPath, retroArchPath, retroArchExec} = config
 
   // windows vs mac differences follow...
-  const cd = `cd ${retroArchPath}`
+  const cd = `cd %userprofile%\\Public\\${retroArchPath}`
   const core = `%userprofile%\\AppData\\Roaming\\RetroArch\\cores\\${game.core}`
   const rom = `%userprofile%\\${romConfigPath}\\${game.game}`
   const cmd = `${cd} && ${retroArchExec}.lnk -f -L ${core} ${rom}`
