@@ -14,7 +14,7 @@ const Button = ({ handleClick, icon, disabled }: Props) => (
   <button
     type="button"
     disabled={disabled}
-    onClick={handleClick}><i className={`fa ${icon} fa-3x`} /></button>
+    onClick={handleClick}><i className={`fa ${icon}`} /></button>
 )
 
 export default Button

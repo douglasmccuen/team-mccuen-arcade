@@ -2,29 +2,33 @@
   height: 10vh;
   display: flex;
   flex-direction: row;
+  overflow: hidden;
 }
 .Banner .Controls {
   flex: 3;
   display: block;
-  margin: 3rem 1rem 0 1rem;
+  margin: 1.5rem 1rem 0 1rem;
 }
 .Banner .Controls button {
-  height: 3rem;
-  width: 4rem;
+  height: 2.2rem;
+  width: 3rem;
   display: inline-block;
-  border-radius: 0.5rem;
+  border-radius: 0.4rem;
   margin: auto 0.5rem;
   background: none;
   color: white;
-  border: 3px solid pink;
+  border: 2.5px solid pink;
   cursor: pointer;
   outline: none;
 }
 .Banner .VolumeControls button {
   border-color: hotpink;
 }
+.Banner .VolumeControls button i {
+  font-size: 1.5rem;
+}
 .Banner h1 {
-  flex: 10;
+  flex: 4;
   font-size: 8vh;
   line-height: 3vh;
   text-align: center;
@@ -38,4 +42,6 @@
   font-size: 2.1em;
   line-height: 1;
   display: inline-block;
+  position: relative;
+  top: 4px;
 }
