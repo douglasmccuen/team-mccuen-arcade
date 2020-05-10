@@ -16,7 +16,7 @@ const openRetroArch = ({game, config}:EmulatorProps, cb:Callback):ChildProcess =
 
 export const openRetroArchProcess = async (cb:Callback):Promise<ChildProcess> => {
   const process = await getConfig().then(({retroArchPath, retroArchExec}) => {
-    const cmd = `cd ${retroArchPath}; ${retroArchExec} -f`
+    const cmd = `cd %userprofile%\\Public\\${retroArchPath} && ${retroArchExec}.lnk -f`
     const options = {}
     return exec(cmd, options, cb)
   })

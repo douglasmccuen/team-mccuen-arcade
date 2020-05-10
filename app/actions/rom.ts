@@ -49,7 +49,7 @@ export function openGame(game: string) {
       })
 
       ipcRenderer.on(errorChannel, (_, message) => {
-        console.error(`Failed to open mame window: ${message}`)
+        console.error(`Failed to open emulator window: ${message}`)
         dispatch(closeRom())
       })
 
