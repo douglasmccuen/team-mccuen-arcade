@@ -220,7 +220,7 @@ const roms = {
       description: ''
     },
     {
-      game: 'princeofpersia.zip',
+      game: 'Prince\\PRINCE.exe',
       name: 'Prince Of Persia',
       emulator: 'retro',
       core: 'dosbox_core_libretro.dll',
