@@ -57,6 +57,7 @@ export default class MenuBuilder {
     });
   }
 
+  // NOTE: Windows won't use this...
   buildDarwinTemplate() {
     const subMenuAbout: DarwinMenuItemConstructorOptions = {
       label: 'Electron',
@@ -327,6 +328,48 @@ export default class MenuBuilder {
                     this.mainWindow.setFullScreen(
                       !this.mainWindow.isFullScreen()
                     );
+                  }
+                },
+                { type: 'separator' },
+                {
+                  label: 'Project List',
+                  accelerator: 'Ctrl+Command+T',
+                  click: () => {
+                    shell.openExternal(
+                      'https://github.com/douglasmccuen/team-mccuen-arcade/projects/1'
+                    )
+                  }
+                },
+                {
+                  label: 'Issues List',
+                  accelerator: 'Command+T',
+                  click: () => {
+                    shell.openExternal(
+                      'https://github.com/douglasmccuen/team-mccuen-arcade/issues'
+                    )
+                  }
+                },
+                { type: 'separator' },
+                {
+                  label: 'Open Mame',
+                  accelerator: 'Ctrl+Command+M',
+                  click: () => {
+                    this.windowManager.openMame()
+                  }
+                },
+                {
+                  label: 'Open RetroArch',
+                  accelerator: 'Ctrl+Command+R',
+                  click: () => {
+                    this.windowManager.openRetroArch()
+                  }
+                },
+                { type: 'separator' },
+                {
+                  label: 'Toggle &Developer Tools',
+                  accelerator: 'Alt+Ctrl+I',
+                  click: () => {
+                    this.mainWindow.webContents.toggleDevTools();
                   }
                 }
               ]
