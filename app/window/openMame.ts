@@ -6,7 +6,7 @@ const openMame = ({game, config}:EmulatorProps, cb:Callback):ChildProcess => {
   const {mamePath, mameExec} = config
 
   // windows vs mac differences follow...
-  const cmd = `cd ${mamePath}; ${mameExec} ${game.game}`
+  const cmd = `cd ${mamePath} && ${mameExec} ${game.game}`
 
   const options = {}
   return exec(cmd, options, cb)
