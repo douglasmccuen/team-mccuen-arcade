@@ -1,5 +1,5 @@
 const cfg = {
-  romConfigPath: 'Public/games',
+  romConfigPath: 'Public\\games',
   retroArchPath: 'retroArch',
   retroArchExec: 'MacOS/RetroArch',
   mamePath: 'mame',
