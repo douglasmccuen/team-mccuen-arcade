@@ -166,6 +166,15 @@ const roms = {
       description: ''
     },
     {
+      game: 'Maelstrom\\Maelstrom.exe -fullscreen',
+      name: 'Maelstrom',
+      emulator: 'none',
+      preview: 'https://team-mccuen.s3-us-west-2.amazonaws.com/images/better/marble.png',
+      image: 'https://team-mccuen.s3-us-west-2.amazonaws.com/images/marble.png',
+      rating: 5,
+      description: 'Like Asteroids, but spicier.'
+    },
+    {
       game: 'marble',
       name: 'Marble Madness',
       emulator: 'mame',
