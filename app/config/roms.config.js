@@ -166,7 +166,7 @@ const roms = {
       description: ''
     },
     {
-      game: 'Maelstrom\\Maelstrom.exe -fullscreen',
+      game: 'Maelstrom.exe -fullscreen',
       name: 'Maelstrom',
       emulator: 'none',
       preview: 'https://team-mccuen.s3-us-west-2.amazonaws.com/images/better/marble.png',
