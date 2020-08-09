@@ -6,7 +6,7 @@ const openExe = ({game, config}:EmulatorProps, cb:Callback):ChildProcess => {
 
   // windows vs mac differences follow...
   const cd = `cd %userprofile%\\${romConfigPath}`
-  const cmd = `${cd} && ${game.game}`
+  const cmd = `${cd} && .\\${game.game}`
   const options = {}
   return exec(cmd, options, cb)
 }
