@@ -10,6 +10,15 @@ const roms = {
       description: 'This game is pretty cool, but it needs a computer faster than our little mac mini to run the super advanced animation.'
     },
     {
+      game: 'boogwing',
+      name: 'Boogie Wings',
+      emulator: 'mame',
+      preview: 'https://team-mccuen.s3-us-west-2.amazonaws.com/images/better/zaxxon.png',
+      image: 'https://team-mccuen.s3-us-west-2.amazonaws.com/images/zaxxon.png',
+      rating: 5,
+      description: 'Ragtime meets Steampunk?  Who knew this was a thing?'
+    },
+    {
       game: 'btimem',
       name: 'Burger Time',
       emulator: 'mame',
@@ -44,6 +53,16 @@ const roms = {
       image: 'https://team-mccuen.s3-us-west-2.amazonaws.com/images/15633-ingame-Cruisn-USA.jpg',
       rating: 5,
       description: ''
+    },
+    {
+      game: 'xmas_daze.sfc',
+      name: 'Daze Before Christmas',
+      emulator: 'retro',
+      core: 'snes9x_libretro.dll',
+      preview: 'https://team-mccuen.s3-us-west-2.amazonaws.com/images/better/zaxxon.png',
+      image: 'https://team-mccuen.s3-us-west-2.amazonaws.com/images/zaxxon.png',
+      rating: 5,
+      description: 'Ho, Ho, Ho.  Tis the season of playing games, and this is the best XMas game I found.'
     },
     {
       game: 'defenderb',
